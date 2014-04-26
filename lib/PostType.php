@@ -1,6 +1,5 @@
 <?php
 abstract class WPCPT_PostType {
-    public static $menuSeparators = array();
     protected $menuOrder          = array();
     protected $name               = '';
     protected $options            = array();
