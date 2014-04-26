@@ -8,7 +8,13 @@ abstract class WPCPT_Field {
     protected $options    = array();
     protected $note       = '';
 
-    abstract public function render();
+    public function render() {
+        echo '<tr valign="top">';
+        $this->showLabel();
+        echo '<td>';
+        $this->renderField();
+        echo '</td></tr>';
+    }
 
     public function __construct($value = '') {
         $this->value = $value;

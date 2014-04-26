@@ -1,13 +1,5 @@
 <?php
 class WPCPT_Field_Radio extends WPCPT_Field {
-    public function render() {
-        echo '<tr valign="top">';
-        $this->showLabel();
-        echo '<td>';
-        $this->renderField();
-        echo '</td></tr>';
-    }
-
     public function renderField() {
         $id    = true;
         $first = true;
