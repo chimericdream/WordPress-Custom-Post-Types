@@ -1,6 +1,6 @@
 <?php
 abstract class WPCPT_Field_Collection extends WPCPT_Field {
-    protected $options  = array();
+    protected $options = array();
 
     public function __construct($options = array()) {
         $this->options = $options;
