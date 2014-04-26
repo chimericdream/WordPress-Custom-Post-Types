@@ -1,8 +1,8 @@
 <?php
 abstract class WPCPT_PostTypeRegistry {
-    protected $postTypes = array();
-    protected $registry  = array();
+    protected $postTypes      = array();
     protected $menuSeparators = array();
+    protected $registry       = array();
 
     public function __construct() {
         $this->registerPostTypes();
