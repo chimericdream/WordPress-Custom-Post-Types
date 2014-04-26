@@ -16,6 +16,10 @@ abstract class WPCPT_Field {
         echo '</td></tr>';
     }
 
+    public function renderField() {
+        echo '';
+    }
+
     public function __construct($value = '') {
         $this->value = $value;
     }
