@@ -13,7 +13,8 @@ class WPCPT_Autoloader {
 
         global $wpcpt_autoload_helper;
         foreach ($wpcpt_autoload_helper->getDirectories() as $dir) {
-            $c = "{$dir}/{$class}.php";
+            $c = str_replace($dir['prefix'], '', $class);
+            $c = "{$dir['name']}/{$c}.php";
             if (is_readable($c)) {
                 require_once $c;
             }
