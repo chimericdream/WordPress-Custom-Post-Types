@@ -10,11 +10,9 @@
  */
 
 require_once dirname(__FILE__) . '/lib/Autoloader.php';
+$wpcpt_autoloader = new WPCPT_Autoloader();
 
-global $wpcpt_autoload_helper;
-$wpcpt_autoload_helper = new WPCPT_AutoloadHelper();
-
-add_action('plugins_loaded', 'wpcpt_init');
+add_action('init', 'wpcpt_init');
 
 function wpcpt_init() {
     do_action('wpcpt_init');
