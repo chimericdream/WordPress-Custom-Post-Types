@@ -1,0 +1,11 @@
+{
+    "name": "wpcpt-plugin",
+    "description": "WordPress plugin to help with creation of Custom Post Types, Taxonomies, Shortcodes, etc.",
+    "type": "wordpress-plugin",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master",
+            "dev-develop": "develop"
+        }
+    }
+}
