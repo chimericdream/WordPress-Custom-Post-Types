@@ -1,5 +1,5 @@
 {
-    "name": "wpcpt-plugin",
+    "name": "wpcpt-helpers",
     "description": "WordPress plugin to help with creation of Custom Post Types, Taxonomies, Shortcodes, etc.",
     "type": "wordpress-plugin",
     "extra": {
