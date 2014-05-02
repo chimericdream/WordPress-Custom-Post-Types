@@ -39,6 +39,13 @@ abstract class WPCPT_PostType {
         $this->setupShortcodes();
     }
 
+    public function getOption($name) {
+        if (array_key_exists($name, $this->options)) {
+            return $this->options[$name];
+        }
+        return null;
+    }
+
     public static function getAll($postType = '', $atts = array()) {
         if (empty($postType)) {
             return array();
