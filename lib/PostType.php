@@ -30,13 +30,11 @@ abstract class WPCPT_PostType {
         'taxonomies'           => array(),
         'has_archive'          => false,
         'rewrite'              => false,
-        'shortcodes'           => array()
     );
 
     public function __construct() {
         $this->options = array_merge($this->defaults, $this->options);
         $this->register();
-        $this->setupShortcodes();
     }
 
     public function getOption($name) {
@@ -205,11 +203,5 @@ abstract class WPCPT_PostType {
             return $_POST[$name];
         }
         return NULL;
-    }
-
-    protected function setupShortcodes() {
-        foreach ($this->options['shortcodes'] as $code => $func) {
-            add_shortcode($code, array($this, $func));
-        }
     }
 }
