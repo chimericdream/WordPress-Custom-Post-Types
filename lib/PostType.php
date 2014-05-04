@@ -12,6 +12,7 @@ abstract class WPCPT_PostType {
         'exclude_from_search'  => false,
         'show_ui'              => true,
         'show_in_menu'         => true,
+        'submenu_pages'        => array(),
         'menu_icon'            => null,
         'capability_type'      => 'page',
         'supports'             => array(
@@ -119,8 +120,30 @@ abstract class WPCPT_PostType {
             'taxonomies'           => $this->options['taxonomies'],
             'rewrite'              => $this->options['rewrite']
         );
+        if (is_string($opts['show_in_menu'])) {
+            $opts['show_in_menu'] = 'edit.php?post_type=' . $opts['show_in_menu'];
+        }
         register_post_type($this->name, $opts);
         add_action('save_post', array($this, 'savePost'));
+        if (!empty($this->options['submenu_pages'])) {
+            add_action('admin_menu', array($this, 'adminMenu'));
+        }
+    }
+
+    public function adminMenu() {
+        foreach ($this->options['submenu_pages'] as $p) {
+            $opts = array(
+                'parent'     => 'edit.php?post_type=' . $p['parent'],
+                'page-title' => $this->options['label_plural'],
+                'menu-title' => 'All ' . $this->options['label_plural'],
+                'capability' => 'edit_' . $this->options['capability_type'] . 's',
+                'function'   => 'edit.php?&post_type=' . $this->name,
+            );
+            if (!empty($p['tax-function'])) {
+                $opts['function'] = 'edit-tags.php?taxonomy=' . $p['tax-function'] . '&post_type=' . $this->name;
+            }
+            add_submenu_page($opts['parent'], $opts['page-title'], $opts['menu-title'], $opts['capability'], $opts['function']);
+        }
     }
 
     protected function verifyThemeSupport() {
