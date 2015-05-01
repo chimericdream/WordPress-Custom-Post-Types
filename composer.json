@@ -8,5 +8,9 @@
             "dev-master": "master",
             "dev-develop": "develop"
         }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.*",
+        "phpdocumentor/phpdocumentor": "2.*"
     }
 }
