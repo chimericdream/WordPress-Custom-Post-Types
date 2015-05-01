@@ -9,7 +9,7 @@
  * License: MIT
  */
 
-require_once dirname(__FILE__) . '/lib/Autoloader.php';
+require_once dirname(__FILE__) . '/src/lib/Autoloader.php';
 $wpcpt_autoloader = new WPCPT_Autoloader();
 
 add_action('init', 'wpcpt_init');
