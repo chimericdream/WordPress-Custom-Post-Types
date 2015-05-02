@@ -1,7 +1,8 @@
 <?php
 namespace WPCPT\Field;
 
-use WPCPT\Field;
+use \WPCPT\Field;
+use \WPCPT\Fieldset;
 
 abstract class Collection extends Field
 {
@@ -18,5 +19,5 @@ abstract class Collection extends Field
         return '';
     }
 
-    abstract public function setFields(WPCPT_Fieldset &$fs);
+    abstract public function setFields(Fieldset &$fs);
 }

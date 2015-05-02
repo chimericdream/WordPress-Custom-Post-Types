@@ -1,8 +1,8 @@
 <?php
 namespace WPCPT\Field\Repeatable;
 
-use WPCPT\Field\Repeatable;
-use WPCPT\Field\Select;
+use \WPCPT\Field\Repeatable;
+use \WPCPT\Field\Select;
 
 class Select extends Repeatable
 {

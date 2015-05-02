@@ -1,51 +1,24 @@
 <?php
 namespace WPCPT\Field;
 
-use WPCPT\Field;
+use \WPCPT\Field;
 
 class Radio extends Field
 {
     public function renderField()
     {
-        $id    = true;
-        $first = true;
         if (empty($this->fieldName)) {
             $this->fieldName = $this->fieldId;
         }
-        if (array_values($this->options) === $this->options) {
-            foreach ($this->options as $v) {
-                if (!$first) {
-                    echo '<br>';
-                }
-                echo '<label><input';
-                if ($id) {
-                    echo ' id="' . $this->fieldId . '"';
-                    $id = false;
-                }
-                echo " type=\"radio\" name=\"{$this->fieldName}\" value=\"{$v}\"";
-                if ($this->value == $v) {
-                    echo ' checked="checked"';
-                }
-                echo "> {$v}</label>";
-                $first = false;
-            }
-        } else {
-            foreach ($this->options as $k => $v) {
-                if (!$first) {
-                    echo '<br>';
-                }
-                echo '<label><input';
-                if ($id) {
-                    echo ' id="' . $this->fieldId . '"';
-                    $id = false;
-                }
-                echo " type=\"radio\" name=\"{$this->fieldName}\" value=\"{$k}\"";
-                if ($this->value == $k) {
-                    echo ' checked="checked"';
-                }
-                echo "> {$v}</label>";
-                $first = false;
-            }
+        $keys     = array_keys($this->options);
+        $keycount = count($keys);
+        for ($i = 0; $i < $keycount; $i++) {
+            echo ($i === 0) ? '<br>' : '';
+            echo '<label><input';
+            echo ($i === 0) ? ' id="' . $this->fieldId . '"' : '';
+            echo ' type="radio" name="' . $this->fieldName . '" value="' . $keys[$i] . '"';
+            echo ($this->value == $keys[$i]) ? ' checked="checked"' : '';
+            echo "> {$this->options[$keys[$i]]}</label>";
         }
     }
 }

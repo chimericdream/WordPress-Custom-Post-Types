@@ -1,10 +1,10 @@
 <?php
 namespace WPCPT\Field;
 
-use WPCPT\Field;
-use WPCPT\Field\Select;
-use WPCPT\Field\Text;
-use WPCPT\Field\Textarea\NoWysiwyg;
+use \WPCPT\Field;
+use \WPCPT\Field\Select;
+use \WPCPT\Field\Text;
+use \WPCPT\Field\Textarea\NoWysiwyg;
 
 class Group extends Field
 {
@@ -33,43 +33,59 @@ class Group extends Field
     protected function generateFields($val = '')
     {
         foreach ($this->fields as $f) {
-            if (is_array($f)) {
-                $v = '';
-                if (is_array($val) && array_key_exists($f['name'], $val)) {
-                    $v = $val[$f['name']];
-                }
-                if (!array_key_exists('atts', $f)) {
-                    $f['atts'] = array();
-                }
-                $fieldId    = $this->fieldId . '_' . $f['name'];
-                $fieldName  = $this->fieldId . '[' . $f['name'] . ']';
-                switch($f['type']) {
-                    case 'select':
-                        $field = new Select($v);
-                        $field->setId($fieldId)
-                              ->setName($fieldName)
-                              ->setOptions($f['options'])
-                              ->setAttributes($f['atts'])
-                              ->renderField();
-                        break;
-                    case 'text':
-                        $field = new Text($v);
-                        $field->setId($fieldId)
-                              ->setName($fieldName)
-                              ->setAttributes($f['atts'])
-                              ->renderField();
-                        break;
-                    case 'textarea':
-                        $field = new NoWysiwyg($v);
-                        $field->setId($fieldId)
-                              ->setName($fieldName)
-                              ->setAttributes($f['atts'])
-                              ->renderField();
-                        break;
-                }
-            } else {
+            if (!is_array($f)) {
                 echo $f;
+                continue;
+            }
+            $v = (is_array($val) && array_key_exists($f['name'], $val)) ? $val[$f['name']] : '';
+            if (!array_key_exists('atts', $f)) {
+                $f['atts'] = array();
+            }
+            switch($f['type']) {
+                case 'select':
+                    $this->renderSelect($v, $f);
+                    break;
+                case 'text':
+                    $this->renderText($v, $f);
+                    break;
+                case 'textarea':
+                    $this->renderTextarea($v, $f);
+                    break;
             }
         }
+    }
+
+    private function renderSelect($value, $data)
+    {
+        $id    = $this->fieldId . '_' . $data['name'];
+        $name  = $this->fieldId . '[' . $data['name'] . ']';
+        $field = new Select($value);
+        $field->setId($id)
+              ->setName($name)
+              ->setOptions($data['options'])
+              ->setAttributes($data['atts'])
+              ->renderField();
+    }
+
+    private function renderText($value, $data)
+    {
+        $id    = $this->fieldId . '_' . $data['name'];
+        $name  = $this->fieldId . '[' . $data['name'] . ']';
+        $field = new Text($value);
+        $field->setId($id)
+              ->setName($name)
+              ->setAttributes($data['atts'])
+              ->renderField();
+    }
+
+    private function renderTextarea($value, $data)
+    {
+        $id    = $this->fieldId . '_' . $data['name'];
+        $name  = $this->fieldId . '[' . $data['name'] . ']';
+        $field = new NoWysiwyg($value);
+        $field->setId($id)
+              ->setName($name)
+              ->setAttributes($data['atts'])
+              ->renderField();
     }
 }

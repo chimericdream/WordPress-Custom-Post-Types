@@ -1,7 +1,7 @@
 <?php
 namespace WPCPT\Field;
 
-use WPCPT\Field;
+use \WPCPT\Field;
 
 abstract class Repeatable extends Field
 {
@@ -14,7 +14,7 @@ abstract class Repeatable extends Field
         if (!is_array($this->value)) {
             $this->value = json_decode($this->value, true);
         }
-        $this->attributes[] = " data-field=\"{$this->fieldId}\"";
+        $this->attributes[] = ' data-field="' . $this->fieldId . '"';
 
         if (empty($this->value)) {
             $this->value = array('');
@@ -27,7 +27,7 @@ abstract class Repeatable extends Field
             }
             echo '<td>';
             $this->generateFields($this->value[$i], $i);
-            echo "</td></tr>";
+            echo '</td></tr>';
         }
 
         $output = ob_get_contents();

@@ -25,6 +25,15 @@ abstract class Field
         echo '';
     }
 
+    public function getNameAttribute()
+    {
+        if (empty($this->fieldName)) {
+            return $this->fieldId;
+        } else {
+            return $this->fieldName;
+        }
+    }
+
     public function __construct($value = '')
     {
         $this->value = $value;
@@ -74,13 +83,13 @@ abstract class Field
 
     protected function showLabel()
     {
-        echo "<th scope=\"row\"><label for=\"{$this->fieldId}\">{$this->labelText}</label></th>";
+        echo '<th scope="row"><label for="' . $this->fieldId . '">' . $this->labelText . '</label></th>';
     }
 
     protected function renderAttributes()
     {
         foreach ($this->attributes as $att => $val) {
-            echo " {$att}=\"{$val}\"";
+            echo ' ' . $att . '="' . $val . '"';
         }
     }
 }

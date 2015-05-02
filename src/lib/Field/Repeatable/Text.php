@@ -1,8 +1,8 @@
 <?php
 namespace WPCPT\Field\Repeatable;
 
-use WPCPT\Field\Repeatable;
-use WPCPT\Field\Text;
+use \WPCPT\Field\Repeatable;
+use \WPCPT\Field\Text;
 
 class Text extends Repeatable
 {

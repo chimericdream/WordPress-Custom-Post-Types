@@ -1,7 +1,7 @@
 <?php
 namespace WPCPT\Shortcode;
 
-use WPCPT\Shortcode;
+use \WPCPT\Shortcode;
 
 class Raw extends Shortcode
 {

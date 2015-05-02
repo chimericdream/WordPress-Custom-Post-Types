@@ -1,7 +1,7 @@
 <?php
 namespace WPCPT\Field\Common;
 
-use WPCPT\Field\Radio;
+use \WPCPT\Field\Radio;
 
 class YesNo extends Radio
 {

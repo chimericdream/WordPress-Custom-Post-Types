@@ -1,7 +1,7 @@
 <?php
 namespace WPCPT\Field;
 
-use WPCPT\Field;
+use \WPCPT\Field;
 
 class Checkbox extends Field
 {
