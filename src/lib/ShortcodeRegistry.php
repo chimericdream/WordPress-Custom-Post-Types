@@ -1,9 +1,11 @@
 <?php
-abstract class WPCPT_ShortcodeRegistry
+namespace WPCPT;
+
+abstract class ShortcodeRegistry
 {
     protected $wpcpt_shortcodes = array(
         'wpcpt-raw' => array(
-            'class' => 'WPCPT_Shortcode_Raw',
+            'class' => '\WPCPT\Shortcode\Raw',
         ),
     );
     protected $shortcodes       = array();

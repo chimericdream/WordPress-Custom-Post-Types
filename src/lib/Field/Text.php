@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Field_Text extends WPCPT_Field
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+class Text extends Field
 {
     public function renderField()
     {

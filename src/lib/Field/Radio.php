@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Field_Radio extends WPCPT_Field
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+class Radio extends Field
 {
     public function renderField()
     {

@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Field_Select extends WPCPT_Field
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+class Select extends Field
 {
     public function renderField()
     {

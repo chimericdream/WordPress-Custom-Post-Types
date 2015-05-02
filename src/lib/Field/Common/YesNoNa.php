@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Field_Common_YesNoNa extends WPCPT_Field_Radio
+namespace WPCPT\Field\Common;
+
+use WPCPT\Field\Radio;
+
+class YesNoNa extends Radio
 {
     protected $options = array(
         1 => 'Yes',

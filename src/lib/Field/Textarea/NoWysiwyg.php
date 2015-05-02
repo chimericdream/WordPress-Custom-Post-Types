@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Field_Textarea_NoWysiwyg extends WPCPT_Field_Textarea
+namespace WPCPT\Field\Textarea;
+
+use WPCPT\Field\Textarea;
+
+class NoWysiwyg extends Textarea
 {
     public function renderField()
     {

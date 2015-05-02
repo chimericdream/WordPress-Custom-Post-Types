@@ -1,5 +1,9 @@
 <?php
-abstract class WPCPT_Field_Repeatable extends WPCPT_Field
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+abstract class Repeatable extends Field
 {
     public function render()
     {
@@ -18,7 +22,8 @@ abstract class WPCPT_Field_Repeatable extends WPCPT_Field
 
         for ($i = 0; $i < count($this->value); $i++) {
             if ($i != 0) {
-                echo '<tr valign="top" data-field="' . $this->fieldId . '" data-idx="' . $i . '"><th scope="row">&nbsp;</th>';
+                echo '<tr valign="top" data-field="' . $this->fieldId
+                   . '" data-idx="' . $i . '"><th scope="row">&nbsp;</th>';
             }
             echo '<td>';
             $this->generateFields($this->value[$i], $i);
@@ -28,9 +33,10 @@ abstract class WPCPT_Field_Repeatable extends WPCPT_Field
         $output = ob_get_contents();
         ob_end_clean();
 
-        echo "<tr class=\"repeatable-template\" id=\"{$this->fieldId}_template\" data-field=\"{$this->fieldId}\" data-new-id=\"{$i}\" valign=\"top\">";
-        echo "<th scope=\"row\">&nbsp;</th>";
-        echo '<td>';
+        echo '<tr class="repeatable-template" id="' . $this->fieldId
+           . '_template" data-field="' . $this->fieldId
+           . '" data-new-id="' . $i . '" valign="top">'
+           . '<th scope="row">&nbsp;</th><td>';
         $this->generateFields();
         echo '</td></tr>';
 

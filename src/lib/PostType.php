@@ -1,5 +1,7 @@
 <?php
-abstract class WPCPT_PostType
+namespace WPCPT;
+
+abstract class PostType
 {
     protected $menuOrder          = array();
     protected $name               = '';
@@ -147,7 +149,13 @@ abstract class WPCPT_PostType
             if (!empty($p['tax-function'])) {
                 $opts['function'] = 'edit-tags.php?taxonomy=' . $p['tax-function'] . '&post_type=' . $this->name;
             }
-            add_submenu_page($opts['parent'], $opts['page-title'], $opts['menu-title'], $opts['capability'], $opts['function']);
+            add_submenu_page(
+                $opts['parent'],
+                $opts['page-title'],
+                $opts['menu-title'],
+                $opts['capability'],
+                $opts['function']
+            );
         }
     }
 

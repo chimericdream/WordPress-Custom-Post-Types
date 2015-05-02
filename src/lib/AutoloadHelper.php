@@ -1,5 +1,7 @@
 <?php
-class WPCPT_AutoloadHelper
+namespace WPCPT;
+
+class AutoloadHelper
 {
     protected $directories = array();
 

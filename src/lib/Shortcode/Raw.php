@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Shortcode_Raw extends WPCPT_Shortcode
+namespace WPCPT\Shortcode;
+
+use WPCPT\Shortcode;
+
+class Raw extends Shortcode
 {
     public function __construct()
     {

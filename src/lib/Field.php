@@ -1,5 +1,7 @@
 <?php
-abstract class WPCPT_Field
+namespace WPCPT;
+
+abstract class Field
 {
     protected $fieldId    = '';
     protected $fieldName  = null;

@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Field_Textarea extends WPCPT_Field
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+class Textarea extends Field
 {
     public function renderField()
     {

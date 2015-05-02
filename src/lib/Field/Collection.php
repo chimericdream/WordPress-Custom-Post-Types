@@ -1,5 +1,9 @@
 <?php
-abstract class WPCPT_Field_Collection extends WPCPT_Field
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+abstract class Collection extends Field
 {
     protected $options = array();
 

@@ -1,5 +1,9 @@
 <?php
-class WPCPT_Field_Checkbox extends WPCPT_Field
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+class Checkbox extends Field
 {
     public function renderField()
     {

@@ -1,5 +1,7 @@
 <?php
-abstract class WPCPT_PostTypeRegistry
+namespace WPCPT;
+
+abstract class PostTypeRegistry
 {
     protected $postTypes      = array();
     protected $menuSeparators = array();

@@ -1,5 +1,7 @@
 <?php
-abstract class WPCPT_Shortcode
+namespace WPCPT;
+
+abstract class Shortcode
 {
     protected $name;
 
@@ -21,18 +23,22 @@ abstract class WPCPT_Shortcode
             $calling_page = substr($_SERVER['SCRIPT_URI'], 0, -1) . $_SERVER['REQUEST_URI'];
         }
 
+        $dupesql = "SELECT * FROM {$wpdb->prefix}wpcpt_broken_shortcodes "
+                 . "WHERE shortcode = %s AND calling_page = %s AND resolved = 0;";
         $dupes = $wpdb->get_results(
             $wpdb->prepare(
-                "SELECT * FROM {$wpdb->prefix}wpcpt_broken_shortcodes WHERE shortcode = %s AND calling_page = %s AND resolved = 0;",
+                $dupesql,
                 $shortcode,
                 $calling_page
             ),
             ARRAY_A
         );
         if (empty($dupes)) {
+            $insertsql = "INSERT INTO {$wpdb->prefix}wpcpt_broken_shortcodes "
+                       . "(shortcode, calling_page) VALUES (%s, %s);";
             $wpdb->query(
                 $wpdb->prepare(
-                    "INSERT INTO {$wpdb->prefix}wpcpt_broken_shortcodes (shortcode, calling_page) VALUES (%s, %s);",
+                    $insertsql,
                     $shortcode,
                     $calling_page
                 )

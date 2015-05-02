@@ -1,9 +1,14 @@
 <?php
-class WPCPT_Field_Repeatable_Text extends WPCPT_Field_Repeatable
+namespace WPCPT\Field\Repeatable;
+
+use WPCPT\Field\Repeatable;
+use WPCPT\Field\Text;
+
+class Text extends Repeatable
 {
     protected function generateFields($val = '', $idx = null)
     {
-        $field = new WPCPT_Field_Text($val);
+        $field = new Text($val);
         $atts = array(
             'data-id'    => $this->fieldId . '_{x}',
             'data-name'  => $this->fieldId . '[{x}]',
