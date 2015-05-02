@@ -1,6 +1,12 @@
 <?php
-class WPCPT_Field_Radio extends WPCPT_Field {
-    public function renderField() {
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+class Radio extends Field
+{
+    public function renderField()
+    {
         $id    = true;
         $first = true;
         if (empty($this->fieldName)) {

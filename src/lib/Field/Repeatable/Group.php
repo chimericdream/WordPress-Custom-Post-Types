@@ -1,12 +1,22 @@
 <?php
-class WPCPT_Field_Repeatable_Group extends WPCPT_Field_Repeatable {
+namespace WPCPT\Field\Repeatable;
+
+use WPCPT\Field\Repeatable;
+use WPCPT\Field\Select;
+use WPCPT\Field\Text;
+use WPCPT\Field\Textarea\NoWysiwyg;
+
+class Group extends Repeatable
+{
     protected $fields = array();
 
-    public function setFields($fields = array()) {
+    public function setFields($fields = array())
+    {
         $this->fields = $fields;
     }
 
-    protected function generateFields($val = '', $idx = 'template') {
+    protected function generateFields($val = '', $idx = 'template')
+    {
         foreach ($this->fields as $f) {
             if (is_array($f)) {
                 $v = '';
@@ -24,15 +34,15 @@ class WPCPT_Field_Repeatable_Group extends WPCPT_Field_Repeatable {
                 }
                 switch($f['type']) {
                     case 'select':
-                        $field = new WPCPT_Field_Select($v);
+                        $field = new Select($v);
                         $field->setOptions($f['options'])->setAttributes($f['atts'])->renderField();
                         break;
                     case 'text':
-                        $field = new WPCPT_Field_Text($v);
+                        $field = new Text($v);
                         $field->setAttributes($f['atts'])->renderField();
                         break;
                     case 'textarea':
-                        $field = new WPCPT_Field_Textarea_NoWysiwyg($v);
+                        $field = new NoWysiwyg($v);
                         $field->setAttributes($f['atts'])->renderField();
                         break;
                 }

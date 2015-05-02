@@ -1,13 +1,20 @@
 <?php
-abstract class WPCPT_Field_Collection extends WPCPT_Field {
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+abstract class Collection extends Field
+{
     protected $options = array();
 
-    public function __construct($options = array()) {
+    public function __construct($options = array())
+    {
         $this->options = $options;
         return $this;
     }
 
-    public function render() {
+    public function render()
+    {
         return '';
     }
 

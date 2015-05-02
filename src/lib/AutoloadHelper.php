@@ -1,12 +1,17 @@
 <?php
-class WPCPT_AutoloadHelper {
+namespace WPCPT;
+
+class AutoloadHelper
+{
     protected $directories = array();
 
-    public function addDirectory($dir) {
+    public function addDirectory($dir)
+    {
         $this->directories[] = $dir;
     }
 
-    public function getDirectories() {
+    public function getDirectories()
+    {
         return $this->directories;
     }
 }

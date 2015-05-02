@@ -1,13 +1,20 @@
 <?php
-class WPCPT_Field_Repeatable_Select extends WPCPT_Field_Repeatable {
-    protected function generateFields($val = '', $idx = NULL) {
-        $field = new WPCPT_Field_Select($val);
+namespace WPCPT\Field\Repeatable;
+
+use WPCPT\Field\Repeatable;
+use WPCPT\Field\Select;
+
+class Select extends Repeatable
+{
+    protected function generateFields($val = '', $idx = null)
+    {
+        $field = new Select($val);
         $atts = array(
             'data-id'    => $this->fieldId . '_{x}',
             'data-name'  => $this->fieldId . '[{x}]',
             'data-field' => $this->fieldId,
         );
-        if ($idx !== NULL) {
+        if ($idx !== null) {
             $atts['data-idx'] = $idx;
         }
         $field->setId('')

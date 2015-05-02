@@ -1,6 +1,12 @@
 <?php
-class WPCPT_Field_Textarea_NoWysiwyg extends WPCPT_Field_Textarea {
-    public function renderField() {
+namespace WPCPT\Field\Textarea;
+
+use WPCPT\Field\Textarea;
+
+class NoWysiwyg extends Textarea
+{
+    public function renderField()
+    {
         echo '<div class="plain-textarea-wrap">';
         if (!empty($this->note)) {
             echo "<p><strong>Note:</strong> {$this->note}</p>";

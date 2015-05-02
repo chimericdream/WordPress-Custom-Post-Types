@@ -1,6 +1,12 @@
 <?php
-class WPCPT_Field_Textarea extends WPCPT_Field {
-    public function renderField() {
+namespace WPCPT\Field;
+
+use WPCPT\Field;
+
+class Textarea extends Field
+{
+    public function renderField()
+    {
         $this->options = array_merge(
             array(
                 'media_buttons' => false,
