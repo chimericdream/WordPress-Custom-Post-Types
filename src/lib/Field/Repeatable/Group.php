@@ -1,12 +1,15 @@
 <?php
-class WPCPT_Field_Repeatable_Group extends WPCPT_Field_Repeatable {
+class WPCPT_Field_Repeatable_Group extends WPCPT_Field_Repeatable
+{
     protected $fields = array();
 
-    public function setFields($fields = array()) {
+    public function setFields($fields = array())
+    {
         $this->fields = $fields;
     }
 
-    protected function generateFields($val = '', $idx = 'template') {
+    protected function generateFields($val = '', $idx = 'template')
+    {
         foreach ($this->fields as $f) {
             if (is_array($f)) {
                 $v = '';

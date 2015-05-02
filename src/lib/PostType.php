@@ -1,5 +1,6 @@
 <?php
-abstract class WPCPT_PostType {
+abstract class WPCPT_PostType
+{
     protected $menuOrder          = array();
     protected $name               = '';
     protected $options            = array();
@@ -33,31 +34,33 @@ abstract class WPCPT_PostType {
         'rewrite'              => false,
     );
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->options = array_merge($this->defaults, $this->options);
         $this->register();
     }
 
-    public function getOption($name) {
+    public function getOption($name)
+    {
         if (array_key_exists($name, $this->options)) {
             return $this->options[$name];
         }
         return null;
     }
 
-    public static function getAll($postType = '', $atts = array()) {
+    public static function getAll($postType = '', $atts = array())
+    {
         if (empty($postType)) {
             return array();
         }
 
         extract(shortcode_atts(
-                array(
+            array(
                     'perPage' => -1,
                     'status'  => 'publish',
                 ),
-                $atts
-            )
-        );
+            $atts
+        ));
 
         $args = array(
             'posts_per_page'  => $perPage,
@@ -68,21 +71,21 @@ abstract class WPCPT_PostType {
         return get_posts($args);
     }
 
-    public static function getOne($postType = '', $atts = array()) {
+    public static function getOne($postType = '', $atts = array())
+    {
         if (empty($postType)) {
             return array();
         }
 
         extract(shortcode_atts(
-                array(
-                    'slug'   => NULL,
-                    'id'     => NULL,
+            array(
+                    'slug'   => null,
+                    'id'     => null,
                     'status' => 'publish',
                 ),
-                $atts
-            )
-        );
-        if ($slug === NULL && $id === NULL) {
+            $atts
+        ));
+        if ($slug === null && $id === null) {
             return '';
         }
 
@@ -92,7 +95,7 @@ abstract class WPCPT_PostType {
             'post_status'     => $status,
         );
 
-        if ($id != NULL) {
+        if ($id != null) {
             $args['p'] = $id;
         } else {
             $args['name'] = $slug;
@@ -101,7 +104,8 @@ abstract class WPCPT_PostType {
         return get_posts($args);
     }
 
-    protected function register() {
+    protected function register()
+    {
         $this->verifyThemeSupport();
         $opts = array(
             'labels'               => $this->generateLabels(),
@@ -130,7 +134,8 @@ abstract class WPCPT_PostType {
         }
     }
 
-    public function adminMenu() {
+    public function adminMenu()
+    {
         foreach ($this->options['submenu_pages'] as $p) {
             $opts = array(
                 'parent'     => 'edit.php?post_type=' . $p['parent'],
@@ -146,7 +151,8 @@ abstract class WPCPT_PostType {
         }
     }
 
-    protected function verifyThemeSupport() {
+    protected function verifyThemeSupport()
+    {
         if (!current_theme_supports('post-thumbnails') && in_array('thumbnail', $this->options['supports'])) {
             add_theme_support('post-thumbnails');
         }
@@ -155,7 +161,8 @@ abstract class WPCPT_PostType {
         }
     }
 
-    protected function generateLabels() {
+    protected function generateLabels()
+    {
         $l  = $this->options['label'];
         $ls = $this->options['label_plural'];
         $labels = array(
@@ -180,12 +187,14 @@ abstract class WPCPT_PostType {
     abstract public function addMetaBoxes();
     abstract public function savePost($post_id);
 
-    protected function setNonce() {
+    protected function setNonce()
+    {
         $noncefield = $this->name . '_meta_nonce';
         wp_nonce_field(plugin_basename(__FILE__), $noncefield);
     }
 
-    protected function verifyBeforeSave($post_id) {
+    protected function verifyBeforeSave($post_id)
+    {
         // verify if this is an auto save routine.
         // If it is our form has not been submitted, so we dont want to do anything
         if ((defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || empty($_POST)) {
@@ -208,23 +217,26 @@ abstract class WPCPT_PostType {
         return true;
     }
 
-    protected function getMeta($name) {
+    protected function getMeta($name)
+    {
         $id = $this->post_id;
         return get_post_meta($id, $name, true);
     }
 
-    protected function setMeta($name, $value = NULL) {
+    protected function setMeta($name, $value = null)
+    {
         $id = $this->post_id;
-        if ($value === NULL) {
+        if ($value === null) {
             $value = $this->getPostVar($name);
         }
         update_post_meta($id, $name, $value);
     }
 
-    protected function getPostVar($name) {
+    protected function getPostVar($name)
+    {
         if (array_key_exists($name, $_POST)) {
             return $_POST[$name];
         }
-        return NULL;
+        return null;
     }
 }

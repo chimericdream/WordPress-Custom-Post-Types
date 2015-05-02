@@ -1,5 +1,6 @@
 <?php
-class WPCPT_Autoloader {
+class WPCPT_Autoloader
+{
     protected static $prefixes = array(
         'WPCPT_',
     );
@@ -8,7 +9,8 @@ class WPCPT_Autoloader {
         __DIR__,
     );
 
-    public function __construct($prefix = '', $dir = '') {
+    public function __construct($prefix = '', $dir = '')
+    {
         if (!empty($prefix) && !empty($dir)) {
             self::$prefixes[]    = $prefix;
             self::$directories[] = $dir;
@@ -16,7 +18,8 @@ class WPCPT_Autoloader {
         spl_autoload_register(array(get_class($this), 'load'));
     }
 
-    public static function load($class) {
+    public static function load($class)
+    {
         foreach (self::$prefixes as $idx => $prefix) {
             $c = str_replace($prefix, '', $class);
             $c = str_replace('_', '/', $c);

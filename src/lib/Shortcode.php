@@ -1,8 +1,10 @@
 <?php
-abstract class WPCPT_Shortcode {
+abstract class WPCPT_Shortcode
+{
     protected $name;
 
-    public static function logBrokenShortcode($name, $atts, $content) {
+    public static function logBrokenShortcode($name, $atts, $content)
+    {
         global $wpdb;
 
         $shortcode = "[$name";
@@ -38,11 +40,13 @@ abstract class WPCPT_Shortcode {
         }
     }
 
-    public function __construct() {
+    public function __construct()
+    {
         add_shortcode($this->name, array($this, 'run'));
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 

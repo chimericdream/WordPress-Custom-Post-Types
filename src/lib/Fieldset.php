@@ -1,12 +1,15 @@
 <?php
-class WPCPT_Fieldset {
+class WPCPT_Fieldset
+{
     protected $fields = array();
 
-    public function addField(WPCPT_Field $field) {
+    public function addField(WPCPT_Field $field)
+    {
         $this->fields[] = $field;
     }
 
-    public function render() {
+    public function render()
+    {
         if (empty($this->fields)) {
             return;
         }

@@ -1,6 +1,8 @@
 <?php
-class WPCPT_Field_Select extends WPCPT_Field {
-    public function renderField() {
+class WPCPT_Field_Select extends WPCPT_Field
+{
+    public function renderField()
+    {
         echo "<select id=\"{$this->fieldId}\" name=\"";
         echo (!empty($this->fieldName)) ? $this->fieldName : $this->fieldId;
         echo '"';

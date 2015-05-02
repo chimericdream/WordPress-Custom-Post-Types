@@ -1,6 +1,8 @@
 <?php
-abstract class WPCPT_Field_Repeatable extends WPCPT_Field {
-    public function render() {
+abstract class WPCPT_Field_Repeatable extends WPCPT_Field
+{
+    public function render()
+    {
         ob_start();
 
         echo '<tr valign="top" data-field="' . $this->fieldId . '" data-idx="0">';

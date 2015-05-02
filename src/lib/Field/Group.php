@@ -1,12 +1,15 @@
 <?php
-class WPCPT_Field_Group extends WPCPT_Field {
+class WPCPT_Field_Group extends WPCPT_Field
+{
     protected $fields = array();
 
-    public function setFields($fields = array()) {
+    public function setFields($fields = array())
+    {
         $this->fields = $fields;
     }
 
-    public function render() {
+    public function render()
+    {
         echo '<tr valign="top">';
         $this->showLabel();
         if (!is_array($this->value)) {
@@ -20,7 +23,8 @@ class WPCPT_Field_Group extends WPCPT_Field {
         echo '</td></tr>';
     }
 
-    protected function generateFields($val = '') {
+    protected function generateFields($val = '')
+    {
         foreach ($this->fields as $f) {
             if (is_array($f)) {
                 $v = '';
