@@ -1,7 +1,7 @@
 <?php
 namespace WPCPT\Field;
 
-use WPCPT\Field;
+use \WPCPT\Field;
 
 class Textarea extends Field
 {
@@ -14,6 +14,6 @@ class Textarea extends Field
             ),
             $this->options
         );
-        wp_editor($this->value, $this->fieldId, $this->options);
+        \wp_editor($this->value, $this->fieldId, $this->options);
     }
 }

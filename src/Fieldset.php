@@ -1,11 +1,13 @@
 <?php
 namespace WPCPT;
 
+use \WPCPT\Field;
+
 class Fieldset
 {
     protected $fields = array();
 
-    public function addField(WpCpt_Field $field)
+    public function addField(Field $field)
     {
         $this->fields[] = $field;
     }

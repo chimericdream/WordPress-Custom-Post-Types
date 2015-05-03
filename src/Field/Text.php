@@ -1,17 +1,15 @@
 <?php
 namespace WPCPT\Field;
 
-use WPCPT\Field;
+use \WPCPT\Field;
 
 class Text extends Field
 {
     public function renderField()
     {
-        echo "<input type=\"text\" id=\"{$this->fieldId}\" name=\"";
-        echo (!empty($this->fieldName)) ? $this->fieldName : $this->fieldId;
-        echo '"';
+        echo '<input type="text" id="' . $this->fieldId . '" name="' . $this->getNameAttribute() . '"';
         $this->renderAttributes();
-        echo " value=\"{$this->value}\">";
+        echo ' value="' . $this->value . '">';
         if (!empty($this->note)) {
             echo '<p class="description">' . $this->note . '</p>';
         }

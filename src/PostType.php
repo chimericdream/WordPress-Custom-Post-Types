@@ -56,11 +56,11 @@ abstract class PostType
             return array();
         }
 
-        extract(shortcode_atts(
+        extract(\shortcode_atts(
             array(
-                    'perPage' => -1,
-                    'status'  => 'publish',
-                ),
+                'perPage' => -1,
+                'status'  => 'publish',
+            ),
             $atts
         ));
 
@@ -79,12 +79,12 @@ abstract class PostType
             return array();
         }
 
-        extract(shortcode_atts(
+        extract(\shortcode_atts(
             array(
-                    'slug'   => null,
-                    'id'     => null,
-                    'status' => 'publish',
-                ),
+                'slug'   => null,
+                'id'     => null,
+                'status' => 'publish',
+            ),
             $atts
         ));
         if ($slug === null && $id === null) {
@@ -103,7 +103,7 @@ abstract class PostType
             $args['name'] = $slug;
         }
 
-        return get_posts($args);
+        return \get_posts($args);
     }
 
     protected function register()
@@ -129,10 +129,15 @@ abstract class PostType
         if (is_string($opts['show_in_menu'])) {
             $opts['show_in_menu'] = 'edit.php?post_type=' . $opts['show_in_menu'];
         }
-        register_post_type($this->name, $opts);
-        add_action('save_post', array($this, 'savePost'));
+        \register_post_type($this->name, $opts);
+        $this->addActions();
+    }
+
+    private function addActions()
+    {
+        \add_action('save_post', array($this, 'savePost'));
         if (!empty($this->options['submenu_pages'])) {
-            add_action('admin_menu', array($this, 'adminMenu'));
+            \add_action('admin_menu', array($this, 'adminMenu'));
         }
     }
 
@@ -149,7 +154,7 @@ abstract class PostType
             if (!empty($p['tax-function'])) {
                 $opts['function'] = 'edit-tags.php?taxonomy=' . $p['tax-function'] . '&post_type=' . $this->name;
             }
-            add_submenu_page(
+            \add_submenu_page(
                 $opts['parent'],
                 $opts['page-title'],
                 $opts['menu-title'],
@@ -161,11 +166,11 @@ abstract class PostType
 
     protected function verifyThemeSupport()
     {
-        if (!current_theme_supports('post-thumbnails') && in_array('thumbnail', $this->options['supports'])) {
-            add_theme_support('post-thumbnails');
+        if (!\current_theme_supports('post-thumbnails') && in_array('thumbnail', $this->options['supports'])) {
+            \add_theme_support('post-thumbnails');
         }
-        if (!current_theme_supports('post-formats') && in_array('post-formats', $this->options['supports'])) {
-            add_theme_support('post-formats');
+        if (!\current_theme_supports('post-formats') && in_array('post-formats', $this->options['supports'])) {
+            \add_theme_support('post-formats');
         }
     }
 
@@ -198,7 +203,7 @@ abstract class PostType
     protected function setNonce()
     {
         $noncefield = $this->name . '_meta_nonce';
-        wp_nonce_field(plugin_basename(__FILE__), $noncefield);
+        \wp_nonce_field(\plugin_basename(__FILE__), $noncefield);
     }
 
     protected function verifyBeforeSave($post_id)
@@ -209,16 +214,16 @@ abstract class PostType
             return false;
         }
 
-        $noncefield = $this->name . '_meta_nonce';
+        $nonce = filter_input(INPUT_POST, $this->name . '_meta_nonce', FILTER_SANITIZE_STRING);
 
         // verify this came from the our screen and with proper authorization,
         // because save_post can be triggered at other times
-        if (empty($_POST[$noncefield]) || !wp_verify_nonce($_POST[$noncefield], plugin_basename(__FILE__))) {
+        if (!\wp_verify_nonce($nonce, \plugin_basename(__FILE__))) {
             return false;
         }
 
         // Check permissions
-        if (!current_user_can('edit_page', $post_id)) {
+        if (!\current_user_can('edit_page', $post_id)) {
             return false;
         }
 
@@ -228,7 +233,7 @@ abstract class PostType
     protected function getMeta($name)
     {
         $id = $this->post_id;
-        return get_post_meta($id, $name, true);
+        return \get_post_meta($id, $name, true);
     }
 
     protected function setMeta($name, $value = null)
@@ -237,14 +242,11 @@ abstract class PostType
         if ($value === null) {
             $value = $this->getPostVar($name);
         }
-        update_post_meta($id, $name, $value);
+        \update_post_meta($id, $name, $value);
     }
 
     protected function getPostVar($name)
     {
-        if (array_key_exists($name, $_POST)) {
-            return $_POST[$name];
-        }
-        return null;
+        return filter_input(INPUT_POST, $name);
     }
 }

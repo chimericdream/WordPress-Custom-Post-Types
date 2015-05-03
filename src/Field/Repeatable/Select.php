@@ -1,14 +1,14 @@
 <?php
 namespace WPCPT\Field\Repeatable;
 
-use WPCPT\Field\Repeatable;
-use WPCPT\Field\Select;
+use \WPCPT\Field\Repeatable;
+use \WPCPT\Field\Select as SelectField;
 
 class Select extends Repeatable
 {
     protected function generateFields($val = '', $idx = null)
     {
-        $field = new Select($val);
+        $field = new SelectField($val);
         $atts = array(
             'data-id'    => $this->fieldId . '_{x}',
             'data-name'  => $this->fieldId . '[{x}]',

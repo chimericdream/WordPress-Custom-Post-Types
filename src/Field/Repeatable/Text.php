@@ -1,14 +1,14 @@
 <?php
 namespace WPCPT\Field\Repeatable;
 
-use WPCPT\Field\Repeatable;
-use WPCPT\Field\Text;
+use \WPCPT\Field\Repeatable;
+use \WPCPT\Field\Text as TextField;
 
 class Text extends Repeatable
 {
     protected function generateFields($val = '', $idx = null)
     {
-        $field = new Text($val);
+        $field = new TextField($val);
         $atts = array(
             'data-id'    => $this->fieldId . '_{x}',
             'data-name'  => $this->fieldId . '[{x}]',
