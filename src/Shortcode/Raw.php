@@ -35,7 +35,7 @@ class Raw extends Shortcode
         return $new_content;
     }
 
-    public function run()
+    public function run($atts, $content = null)
     {
         return '';
     }
