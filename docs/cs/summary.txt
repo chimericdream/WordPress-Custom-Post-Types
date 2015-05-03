@@ -1,0 +1,33 @@
+
+PHP CODE SNIFFER REPORT SUMMARY
+----------------------------------------------------------------------
+FILE                                                  ERRORS  WARNINGS
+----------------------------------------------------------------------
+...ww/WordPress-Custom-Post-Types/src/Autoloader.php  0       0
+...ordPress-Custom-Post-Types/src/AutoloadHelper.php  0       0
+...ordPress-Custom-Post-Types/src/Field/Checkbox.php  0       0
+...dPress-Custom-Post-Types/src/Field/Collection.php  0       0
+...ress-Custom-Post-Types/src/Field/Common/YesNo.php  0       0
+...ss-Custom-Post-Types/src/Field/Common/YesNoNa.php  0       0
+...w/WordPress-Custom-Post-Types/src/Field/Group.php  0       0
+...w/WordPress-Custom-Post-Types/src/Field/Radio.php  0       0
+...-Custom-Post-Types/src/Field/Repeatable/Group.php  0       0
+...Custom-Post-Types/src/Field/Repeatable/Select.php  0       0
+...s-Custom-Post-Types/src/Field/Repeatable/Text.php  0       0
+...dPress-Custom-Post-Types/src/Field/Repeatable.php  0       0
+.../WordPress-Custom-Post-Types/src/Field/Select.php  0       0
+...ww/WordPress-Custom-Post-Types/src/Field/Text.php  0       0
+...ustom-Post-Types/src/Field/Textarea/NoWysiwyg.php  0       0
+...ordPress-Custom-Post-Types/src/Field/Textarea.php  0       0
+...are/www/WordPress-Custom-Post-Types/src/Field.php  0       0
+.../www/WordPress-Custom-Post-Types/src/Fieldset.php  0       0
+.../www/WordPress-Custom-Post-Types/src/PostType.php  0       0
+...dPress-Custom-Post-Types/src/PostTypeRegistry.php  0       0
+...WordPress-Custom-Post-Types/src/Shortcode/Raw.php  0       0
+...www/WordPress-Custom-Post-Types/src/Shortcode.php  0       0
+...Press-Custom-Post-Types/src/ShortcodeRegistry.php  0       0
+----------------------------------------------------------------------
+A TOTAL OF 0 ERRORS AND 0 WARNINGS WERE FOUND IN 23 FILES
+----------------------------------------------------------------------
+
+

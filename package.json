@@ -1,0 +1,12 @@
+{
+    "name": "@chimericdream/wpcpt",
+    "version": "2.0.0a",
+    "description": "",
+    "homepage": "",
+    "devDependencies": {
+        "grunt": "0.4.x",
+        "grunt-contrib-copy": "^0.8.0",
+        "grunt-shell": "1.x",
+        "grunt-text-replace": "^0.4.0"
+    }
+}
