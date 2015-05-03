@@ -10,7 +10,7 @@
  */
 namespace WPCPT;
 
-require_once dirname(__FILE__) . '/src/lib/Autoloader.php';
+require_once dirname(__FILE__) . '/src/Autoloader.php';
 $wpcpt_autoloader = new Autoloader();
 
 add_action('init', 'wpcpt_init');

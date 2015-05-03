@@ -23,8 +23,8 @@ abstract class PostTypeRegistry
 
     protected function setupActions()
     {
-        add_action('post_edit_form_tag', array($this, 'editFormTag'));
-        add_action('admin_menu', array($this, 'menuSeparators'));
+        \add_action('post_edit_form_tag', array($this, 'editFormTag'));
+        \add_action('admin_menu', array($this, 'menuSeparators'));
     }
 
     public function editFormTag()
@@ -49,7 +49,13 @@ abstract class PostTypeRegistry
                 $index++;
             }
             if ($offset >= $position) {
-                $menu[$position] = array('', 'read', "separator{$index}", '', 'wp-menu-separator');
+                $menu[$position] = array(
+                    '',
+                    'read',
+                    "separator{$index}",
+                    '',
+                    'wp-menu-separator'
+                );
                 break;
             }
         }

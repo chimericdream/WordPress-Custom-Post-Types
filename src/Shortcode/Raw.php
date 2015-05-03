@@ -18,12 +18,13 @@ class Raw extends Shortcode
             '\[raw\].*?\[\/raw\]',
         );
 
-        $new_content = '';
-        $pattern_full = '/(' . implode('|', $plaintext_shortcodes) . ')/is';
-        $pattern_contents = '/\[(raw|geshi|sourcecode)\](.*?)\[\/\1\]/is';
-        $pieces = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $new_content      = '';
+        $pattern_full     = '/(' . implode('|', $plaintext_shortcodes) . ')/is';
+        $pattern_contents = '/\[raw\](.*?)\[\/raw\]/is';
+        $pieces           = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         foreach ($pieces as $piece) {
+            $matches = array();
             if (preg_match($pattern_contents, $piece, $matches)) {
                 $new_content .= $matches[2];
             } else {
@@ -34,7 +35,7 @@ class Raw extends Shortcode
         return $new_content;
     }
 
-    public function run($atts, $content = null)
+    public function run()
     {
         return '';
     }
