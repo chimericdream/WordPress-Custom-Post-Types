@@ -34,6 +34,10 @@ use \WPCPT\Field\Textarea\NoWysiwyg;
  */
 class Group extends Repeatable
 {
+    /**
+     *
+     * @var type
+     */
     protected $fields = array();
 
     /**

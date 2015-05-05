@@ -29,8 +29,22 @@ namespace WPCPT;
  */
 abstract class PostTypeRegistry
 {
+    /**
+     *
+     * @var type
+     */
     protected $postTypes      = array();
+
+    /**
+     *
+     * @var type
+     */
     protected $menuSeparators = array();
+
+    /**
+     *
+     * @var type 
+     */
     protected $registry       = array();
 
     /**

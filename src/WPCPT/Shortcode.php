@@ -29,6 +29,10 @@ namespace WPCPT;
  */
 abstract class Shortcode
 {
+    /**
+     *
+     * @var type 
+     */
     protected $name;
 
     /**

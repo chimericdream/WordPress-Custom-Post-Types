@@ -34,6 +34,10 @@ use \WPCPT\Field\Textarea\NoWysiwyg;
  */
 class Group extends Field
 {
+    /**
+     *
+     * @var type
+     */
     protected $fields = array();
 
     /**

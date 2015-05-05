@@ -29,12 +29,26 @@ namespace WPCPT;
  */
 abstract class ShortcodeRegistry
 {
+    /**
+     *
+     * @var type
+     */
     protected $wpcpt_shortcodes = array(
         'wpcpt-raw' => array(
             'class' => '\WPCPT\Shortcode\Raw',
         ),
     );
+
+    /**
+     *
+     * @var type
+     */
     protected $shortcodes       = array();
+
+    /**
+     *
+     * @var type 
+     */
     protected $registry         = array();
 
     /**

@@ -32,6 +32,10 @@ use \WPCPT\Fieldset;
  */
 abstract class Collection extends Field
 {
+    /**
+     *
+     * @var type
+     */
     protected $options = array();
 
     /**

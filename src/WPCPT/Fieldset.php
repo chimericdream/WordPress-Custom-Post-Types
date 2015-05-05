@@ -31,6 +31,10 @@ use \WPCPT\Field;
  */
 class Fieldset
 {
+    /**
+     *
+     * @var type
+     */
     protected $fields = array();
 
     /**

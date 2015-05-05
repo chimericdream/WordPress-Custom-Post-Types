@@ -29,6 +29,10 @@ namespace WPCPT;
  */
 class AutoloadHelper
 {
+    /**
+     *
+     * @var type
+     */
     protected $directories = array();
 
     /**

@@ -29,12 +29,46 @@ namespace WPCPT;
  */
 abstract class Field
 {
+    /**
+     *
+     * @var type
+     */
     protected $fieldId    = '';
+
+    /**
+     *
+     * @var type
+     */
     protected $fieldName  = null;
+
+    /**
+     *
+     * @var type
+     */
     protected $labelText  = '&nbsp;';
+
+    /**
+     *
+     * @var type
+     */
     protected $value      = '';
+
+    /**
+     *
+     * @var type
+     */
     protected $attributes = array();
+
+    /**
+     *
+     * @var type
+     */
     protected $options    = array();
+
+    /**
+     *
+     * @var type
+     */
     protected $note       = '';
 
     /**

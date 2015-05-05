@@ -31,6 +31,10 @@ use \WPCPT\Field\Radio;
  */
 class YesNoNa extends Radio
 {
+    /**
+     *
+     * @var type
+     */
     protected $options = array(
         1 => 'Yes',
         0 => 'No',

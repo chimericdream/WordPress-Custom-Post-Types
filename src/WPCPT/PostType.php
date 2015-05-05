@@ -29,9 +29,28 @@ namespace WPCPT;
  */
 abstract class PostType
 {
+    /**
+     *
+     * @var type
+     */
     protected $menuOrder          = array();
+
+    /**
+     *
+     * @var type
+     */
     protected $name               = '';
+
+    /**
+     *
+     * @var type
+     */
     protected $options            = array();
+
+    /**
+     *
+     * @var type
+     */
     protected $defaults           = array(
         'label'                => '',
         'label_plural'         => '',

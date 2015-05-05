@@ -29,10 +29,18 @@ namespace WPCPT;
  */
 class Autoloader
 {
+    /**
+     *
+     * @var type
+     */
     protected static $prefixes = array(
         'WPCPT',
     );
 
+    /**
+     *
+     * @var type
+     */
     protected static $directories = array(
         __DIR__,
     );
