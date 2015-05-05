@@ -10,6 +10,7 @@
         }
     },
     "require-dev": {
+        "apigen/apigen": "*",
         "squizlabs/php_codesniffer": "2.*",
         "phpdocumentor/phpdocumentor": "2.*"
     },

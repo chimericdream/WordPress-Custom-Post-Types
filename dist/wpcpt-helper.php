@@ -1,14 +1,14 @@
 <?php
 /**
  * Plugin Name: WordPress Custom Post Types Helper
- * Plugin URI: http://chimericdream.com/
+ * Plugin URI: https://github.com/chimericdream/WordPress-Custom-Post-Types
  * Description: This plugin aids in the creation of custom post types, taxonomies, shortcodes, and more.
  * Version: 2.0.0a
  * Author: Bill Parrott
  * Author URI: http://chimericdream.com/
- * License: MIT
+ * License: http://opensource.org/licenses/MIT
  */
-require_once dirname(__FILE__) . '/src/WPCPT/Autoloader.php';
+require_once dirname(__FILE__) . '/WPCPT/Autoloader.php';
 $wpcpt_autoloader = new \WPCPT\Autoloader();
 
 add_action('init', function () {

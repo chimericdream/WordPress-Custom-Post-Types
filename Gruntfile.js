@@ -47,14 +47,10 @@
                 main: {
                     files: [
                         {
+                            cwd: 'src/',
                             expand: true,
-                            src: 'src/**',
+                            src: '**',
                             dest: 'dist/'
-                        },
-                        {
-                            expand: false,
-                            src: 'wpcpt-helper.php',
-                            dest: 'dist/wpcpt-helper.php'
                         }
                     ]
                 }
@@ -65,16 +61,40 @@
                     overwrite: true,
                     replacements: [
                         {
-                            from: /\{\{@wpcpt_author\}\}/g,
-                            to: "<%= pkg.author %>"
+                            from: /\{\{@wpcpt_author_email\}\}/g,
+                            to: "<%= pkg.author.email %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_author_full\}\}/g,
+                            to: "<%= pkg.author.name %> \<<%= pkg.author.email %>\> (<%= pkg.author.url %>)"
+                        },
+                        {
+                            from: /\{\{@wpcpt_author_name\}\}/g,
+                            to: "<%= pkg.author.name %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_author_url\}\}/g,
+                            to: "<%= pkg.author.url %>"
                         },
                         {
                             from: /\{\{@wpcpt_copyright\}\}/g,
                             to: "<%= pkg.copyright %>"
                         },
                         {
+                            from: /\{\{@wpcpt_description\}\}/g,
+                            to: "<%= pkg.description %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_homepage\}\}/g,
+                            to: "<%= pkg.homepage %>"
+                        },
+                        {
                             from: /\{\{@wpcpt_license\}\}/g,
                             to: "<%= pkg.license.url %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_longname\}\}/g,
+                            to: "<%= pkg.longname %>"
                         },
                         {
                             from: /\{\{@wpcpt_version\}\}/g,
