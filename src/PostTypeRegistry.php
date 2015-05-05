@@ -1,18 +1,50 @@
 <?php
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * @package    WPCPT\PostType
+ * @author     {{@wpcpt_author}}
+ * @copyright  {{@wpcpt_copyright}}
+ * @license    {{@wpcpt_license}}
+ * @version    {{@wpcpt_version}}
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      File available since Release 1.5.0
+ */
 namespace WPCPT;
 
+/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @package    WPCPT\PostType
+ * @author     {{@wpcpt_author}}
+ * @copyright  {{@wpcpt_copyright}}
+ * @license    {{@wpcpt_license}}
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      Class available since Release 1.5.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
 abstract class PostTypeRegistry
 {
     protected $postTypes      = array();
     protected $menuSeparators = array();
     protected $registry       = array();
 
+    /**
+     *
+     */
     public function __construct()
     {
         $this->registerPostTypes();
         $this->setupActions();
     }
 
+    /**
+     *
+     */
     protected function registerPostTypes()
     {
         foreach ($this->postTypes as $k => $v) {
@@ -21,17 +53,26 @@ abstract class PostTypeRegistry
         }
     }
 
+    /**
+     *
+     */
     protected function setupActions()
     {
         \add_action('post_edit_form_tag', array($this, 'editFormTag'));
         \add_action('admin_menu', array($this, 'menuSeparators'));
     }
 
+    /**
+     *
+     */
     public function editFormTag()
     {
         echo ' enctype="multipart/form-data"';
     }
 
+    /**
+     *
+     */
     public function menuSeparators()
     {
         foreach ($this->menuSeparators as $idx) {
@@ -39,6 +80,11 @@ abstract class PostTypeRegistry
         }
     }
 
+    /**
+     *
+     * @global type $menu
+     * @param type $position
+     */
     public function addMenuSeparator($position)
     {
         global $menu;

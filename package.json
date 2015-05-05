@@ -1,8 +1,14 @@
 {
     "name": "@chimericdream/wpcpt",
-    "version": "2.0.0a",
     "description": "",
-    "homepage": "",
+
+    "version": "2.0.0a",
+    "homepage": "https://github.com/chimericdream/WordPress-Custom-Post-Types",
+    "author": "Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)",
+    "copyright": "2014-15 Bill Parrott",
+
+    "license": {"type": "MIT", "url": "http://opensource.org/licenses/MIT"},
+
     "devDependencies": {
         "grunt": "0.4.x",
         "grunt-contrib-copy": "^0.8.0",

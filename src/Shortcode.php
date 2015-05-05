@@ -1,20 +1,57 @@
 <?php
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * @package    WPCPT\Shortcode
+ * @author     {{@wpcpt_author}}
+ * @copyright  {{@wpcpt_copyright}}
+ * @license    {{@wpcpt_license}}
+ * @version    {{@wpcpt_version}}
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      File available since Release 1.5.0
+ */
 namespace WPCPT;
 
+/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @package    WPCPT\Shortcode
+ * @author     {{@wpcpt_author}}
+ * @copyright  {{@wpcpt_copyright}}
+ * @license    {{@wpcpt_license}}
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      Class available since Release 1.5.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
 abstract class Shortcode
 {
     protected $name;
 
+    /**
+     *
+     */
     public function __construct()
     {
         \add_shortcode($this->name, array($this, 'run'));
     }
 
+    /**
+     *
+     * @return type
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     *
+     * @return string
+     */
     public static function getCallingPage()
     {
         $scriptUri  = filter_input(INPUT_SERVER, 'SCRIPT_URI', FILTER_SANITIZE_URL);
@@ -27,6 +64,13 @@ abstract class Shortcode
         return $page;
     }
 
+    /**
+     *
+     * @global type $wpdb
+     * @param type $shortcode
+     * @param type $calling_page
+     * @return type
+     */
     public static function getDupes($shortcode, $calling_page)
     {
         global $wpdb;
@@ -43,6 +87,12 @@ abstract class Shortcode
         );
     }
 
+    /**
+     *
+     * @global \WPCPT\type $wpdb
+     * @param type $shortcode
+     * @param type $calling_page
+     */
     public static function log($shortcode, $calling_page)
     {
         global $wpdb;
@@ -58,6 +108,12 @@ abstract class Shortcode
         );
     }
 
+    /**
+     *
+     * @param type $name
+     * @param type $atts
+     * @param type $content
+     */
     public static function logBrokenShortcode($name, $atts, $content)
     {
         $shortcode = "[$name";
@@ -77,5 +133,8 @@ abstract class Shortcode
         }
     }
 
+    /**
+     *
+     */
     abstract public function run($atts, $content = null);
 }

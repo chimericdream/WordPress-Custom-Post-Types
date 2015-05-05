@@ -1,4 +1,17 @@
 <?php
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * @package    WPCPT\PostType\Field
+ * @author     {{@wpcpt_author}}
+ * @copyright  {{@wpcpt_copyright}}
+ * @license    {{@wpcpt_license}}
+ * @version    {{@wpcpt_version}}
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      File available since Release 1.5.0
+ */
 namespace WPCPT\Field;
 
 use \WPCPT\Field;
@@ -6,15 +19,35 @@ use \WPCPT\Field\Select;
 use \WPCPT\Field\Text;
 use \WPCPT\Field\Textarea\NoWysiwyg;
 
+/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @package    WPCPT\PostType\Field
+ * @author     {{@wpcpt_author}}
+ * @copyright  {{@wpcpt_copyright}}
+ * @license    {{@wpcpt_license}}
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      Class available since Release 1.5.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
 class Group extends Field
 {
     protected $fields = array();
 
+    /**
+     *
+     * @param type $fields
+     */
     public function setFields($fields = array())
     {
         $this->fields = $fields;
     }
 
+    /**
+     *
+     */
     public function render()
     {
         echo '<tr valign="top">';
@@ -30,6 +63,10 @@ class Group extends Field
         echo '</td></tr>';
     }
 
+    /**
+     *
+     * @param type $val
+     */
     protected function generateFields($val = '')
     {
         foreach ($this->fields as $f) {
@@ -55,6 +92,11 @@ class Group extends Field
         }
     }
 
+    /**
+     *
+     * @param type $value
+     * @param type $data
+     */
     private function renderSelect($value, $data)
     {
         $id    = $this->fieldId . '_' . $data['name'];
@@ -67,6 +109,11 @@ class Group extends Field
               ->renderField();
     }
 
+    /**
+     *
+     * @param type $value
+     * @param type $data
+     */
     private function renderText($value, $data)
     {
         $id    = $this->fieldId . '_' . $data['name'];
@@ -78,6 +125,11 @@ class Group extends Field
               ->renderField();
     }
 
+    /**
+     *
+     * @param type $value
+     * @param type $data
+     */
     private function renderTextarea($value, $data)
     {
         $id    = $this->fieldId . '_' . $data['name'];

@@ -1,20 +1,61 @@
 <?php
+/**
+ * Short description for file
+ *
+ * Long description for file (if any)...
+ *
+ * LICENSE: Some license information
+ *
+ * @package    Zend_Magic
+ * @subpackage Wand
+ * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
+ * @copyright  2014-15 Bill Parrott
+ * @license    http://opensource.org/licenses/MIT
+ * @version    2.0.0a
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      File available since Release 1.5.0
+ */
 namespace WPCPT;
 
+/**
+ * Short description for class
+ *
+ * Long description for class (if any)...
+ *
+ * @package    Zend_Magic
+ * @subpackage Wand
+ * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
+ * @copyright  2014-15 Bill Parrott
+ * @license    http://opensource.org/licenses/MIT
+ * @link       http://framework.zend.com/package/PackageName
+ * @since      Class available since Release 1.5.0
+ * @deprecated Class deprecated in Release 2.0.0
+ */
 abstract class Shortcode
 {
     protected $name;
 
+    /**
+     *
+     */
     public function __construct()
     {
         \add_shortcode($this->name, array($this, 'run'));
     }
 
+    /**
+     *
+     * @return type
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     *
+     * @return string
+     */
     public static function getCallingPage()
     {
         $scriptUri  = filter_input(INPUT_SERVER, 'SCRIPT_URI', FILTER_SANITIZE_URL);
@@ -27,6 +68,13 @@ abstract class Shortcode
         return $page;
     }
 
+    /**
+     *
+     * @global type $wpdb
+     * @param type $shortcode
+     * @param type $calling_page
+     * @return type
+     */
     public static function getDupes($shortcode, $calling_page)
     {
         global $wpdb;
@@ -43,6 +91,12 @@ abstract class Shortcode
         );
     }
 
+    /**
+     *
+     * @global \WPCPT\type $wpdb
+     * @param type $shortcode
+     * @param type $calling_page
+     */
     public static function log($shortcode, $calling_page)
     {
         global $wpdb;
@@ -58,6 +112,12 @@ abstract class Shortcode
         );
     }
 
+    /**
+     *
+     * @param type $name
+     * @param type $atts
+     * @param type $content
+     */
     public static function logBrokenShortcode($name, $atts, $content)
     {
         $shortcode = "[$name";
@@ -77,5 +137,8 @@ abstract class Shortcode
         }
     }
 
+    /**
+     *
+     */
     abstract public function run($atts, $content = null);
 }

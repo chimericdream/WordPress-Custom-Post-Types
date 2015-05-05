@@ -55,13 +55,27 @@
                 }
             },
             replace: {
-                wpcpt_version: {
+                wpcpt_info: {
                     src: ['dist/**/*.php'],
                     overwrite: true,
-                    replacements: [{
-                        from: /\{\{@wpcpt_version\}\}/g,
-                        to: "<%= pkg.version %>"
-                    }]
+                    replacements: [
+                        {
+                            from: /\{\{@wpcpt_author\}\}/g,
+                            to: "<%= pkg.author %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_copyright\}\}/g,
+                            to: "<%= pkg.copyright %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_license\}\}/g,
+                            to: "<%= pkg.license.url %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_version\}\}/g,
+                            to: "<%= pkg.version %>"
+                        }
+                    ]
                 }
             }
         });
@@ -95,7 +109,7 @@
             grunt.option('force', true);
             grunt.task.run([
                 'copy:main',
-                'replace:wpcpt_version'
+                'replace:wpcpt_info'
             ]);
         });
     };
