@@ -5,12 +5,12 @@
         grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
             shell: {
-//                phpdoc: {
-//                    options: {
-//                        stderr: false
-//                    },
-//                    command: './vendor/bin/phpdoc'
-//                },
+                apigen: {
+                    options: {
+                        stderr: false
+                    },
+                    command: 'php vendor/bin/apigen generate --template-theme "bootstrap" -s dist -d docs/api'
+                },
 //                phpunit: {
 //                    options: {
 //                        stderr: false
@@ -38,34 +38,77 @@
                              './vendor/bin/phpcs -s --report=summary --report-file=docs/cs/summary.txt --standard=PSR2 -p -v --error-severity=1 --warning-severity=1 ./src'
                 }
             },
+            clean: {
+                deploy: {
+                    src: ['dist/']
+                },
+                apidoc: {
+                    src: ['docs/api/']
+                }
+            },
             copy: {
                 main: {
                     files: [
                         {
+                            cwd: 'src/',
                             expand: true,
-                            src: 'src/**',
+                            src: '**',
                             dest: 'dist/'
-                        },
-                        {
-                            expand: false,
-                            src: 'wpcpt-helper.php',
-                            dest: 'dist/wpcpt-helper.php'
                         }
                     ]
                 }
             },
             replace: {
-                wpcpt_version: {
+                wpcpt_info: {
                     src: ['dist/**/*.php'],
                     overwrite: true,
-                    replacements: [{
-                        from: /\{\{@wpcpt_version\}\}/g,
-                        to: "<%= pkg.version %>"
-                    }]
+                    replacements: [
+                        {
+                            from: /\{\{@wpcpt_author_email\}\}/g,
+                            to: "<%= pkg.author.email %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_author_full\}\}/g,
+                            to: "<%= pkg.author.name %> \<<%= pkg.author.email %>\> (<%= pkg.author.url %>)"
+                        },
+                        {
+                            from: /\{\{@wpcpt_author_name\}\}/g,
+                            to: "<%= pkg.author.name %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_author_url\}\}/g,
+                            to: "<%= pkg.author.url %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_copyright\}\}/g,
+                            to: "<%= pkg.copyright %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_description\}\}/g,
+                            to: "<%= pkg.description %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_homepage\}\}/g,
+                            to: "<%= pkg.homepage %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_license\}\}/g,
+                            to: "<%= pkg.license.url %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_longname\}\}/g,
+                            to: "<%= pkg.longname %>"
+                        },
+                        {
+                            from: /\{\{@wpcpt_version\}\}/g,
+                            to: "<%= pkg.version %>"
+                        }
+                    ]
                 }
             }
         });
 
+        grunt.loadNpmTasks('grunt-contrib-clean');
         grunt.loadNpmTasks('grunt-contrib-copy');
         grunt.loadNpmTasks('grunt-shell');
         grunt.loadNpmTasks('grunt-text-replace');
@@ -94,8 +137,11 @@
             showBanner();
             grunt.option('force', true);
             grunt.task.run([
+                'clean:deploy',
+                'clean:apidoc',
                 'copy:main',
-                'replace:wpcpt_version'
+                'replace:wpcpt_info',
+                'shell:apigen'
             ]);
         });
     };
