@@ -8,7 +8,7 @@
  * Author URI: http://chimericdream.com/
  * License: MIT
  */
-require_once dirname(__FILE__) . '/src/Autoloader.php';
+require_once dirname(__FILE__) . '/src/WPCPT/Autoloader.php';
 $wpcpt_autoloader = new \WPCPT\Autoloader();
 
 add_action('init', function () {
