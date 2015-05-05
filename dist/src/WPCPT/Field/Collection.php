@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -25,8 +22,7 @@ use \WPCPT\Fieldset;
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT

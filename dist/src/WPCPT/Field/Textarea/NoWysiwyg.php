@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field\Textarea
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -15,17 +12,16 @@
  * @link       http://framework.zend.com/package/PackageName
  * @since      File available since Release 1.5.0
  */
-namespace WPCPT\Field;
+namespace WPCPT\Field\Textarea;
 
-use \WPCPT\Field;
+use \WPCPT\Field\Textarea;
 
 /**
  * Short description for class
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field\Textarea
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -33,25 +29,19 @@ use \WPCPT\Field;
  * @since      Class available since Release 1.5.0
  * @deprecated Class deprecated in Release 2.0.0
  */
-class Radio extends Field
+class NoWysiwyg extends Textarea
 {
     /**
      *
      */
     public function renderField()
     {
-        if (empty($this->fieldName)) {
-            $this->fieldName = $this->fieldId;
+        echo '<div class="plain-textarea-wrap">';
+        if (!empty($this->note)) {
+            echo "<p><strong>Note:</strong> {$this->note}</p>";
         }
-        $keys     = array_keys($this->options);
-        $keycount = count($keys);
-        for ($i = 0; $i < $keycount; $i++) {
-            echo ($i === 0) ? '<br>' : '';
-            echo '<label><input';
-            echo ($i === 0) ? ' id="' . $this->fieldId . '"' : '';
-            echo ' type="radio" name="' . $this->fieldName . '" value="' . $keys[$i] . '"';
-            echo ($this->value == $keys[$i]) ? ' checked="checked"' : '';
-            echo "> {$this->options[$keys[$i]]}</label>";
-        }
+        echo '<textarea id="' . $this->fieldId . '" name="' . $this->getNameAttribute() . '"';
+        $this->renderAttributes();
+        echo ">{$this->value}</textarea></div>";
     }
 }

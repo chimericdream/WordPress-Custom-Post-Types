@@ -38,6 +38,11 @@
                              './vendor/bin/phpcs -s --report=summary --report-file=docs/cs/summary.txt --standard=PSR2 -p -v --error-severity=1 --warning-severity=1 ./src'
                 }
             },
+            clean: {
+                deploy: {
+                    src: ['dist/']
+                }
+            },
             copy: {
                 main: {
                     files: [
@@ -80,6 +85,7 @@
             }
         });
 
+        grunt.loadNpmTasks('grunt-contrib-clean');
         grunt.loadNpmTasks('grunt-contrib-copy');
         grunt.loadNpmTasks('grunt-shell');
         grunt.loadNpmTasks('grunt-text-replace');
@@ -108,6 +114,7 @@
             showBanner();
             grunt.option('force', true);
             grunt.task.run([
+                'clean:deploy',
                 'copy:main',
                 'replace:wpcpt_info'
             ]);

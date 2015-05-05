@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field\Repeatable
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -18,15 +15,14 @@
 namespace WPCPT\Field\Repeatable;
 
 use \WPCPT\Field\Repeatable;
-use \WPCPT\Field\Select as SelectField;
+use \WPCPT\Field\Text as TextField;
 
 /**
  * Short description for class
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field\Repeatable
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -34,7 +30,7 @@ use \WPCPT\Field\Select as SelectField;
  * @since      Class available since Release 1.5.0
  * @deprecated Class deprecated in Release 2.0.0
  */
-class Select extends Repeatable
+class Text extends Repeatable
 {
     /**
      *
@@ -43,7 +39,7 @@ class Select extends Repeatable
      */
     protected function generateFields($val = '', $idx = null)
     {
-        $field = new SelectField($val);
+        $field = new TextField($val);
         $atts = array(
             'data-id'    => $this->fieldId . '_{x}',
             'data-name'  => $this->fieldId . '[{x}]',
@@ -53,8 +49,6 @@ class Select extends Repeatable
             $atts['data-idx'] = $idx;
         }
         $field->setId('')
-              ->setName('')
-              ->setOptions($this->options)
               ->setAttributes($atts)
               ->renderField();
         echo " <a class=\"icon-add\" data-add=\"{$this->fieldId}\" href=\"#\">Add</a>";

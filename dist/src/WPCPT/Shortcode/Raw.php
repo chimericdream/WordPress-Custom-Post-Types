@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\Shortcode
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -24,8 +21,7 @@ use \WPCPT\Shortcode;
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\Shortcode
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT

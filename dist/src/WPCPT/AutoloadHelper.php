@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\Autoloader
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -15,17 +12,14 @@
  * @link       http://framework.zend.com/package/PackageName
  * @since      File available since Release 1.5.0
  */
-namespace WPCPT\Field\Common;
-
-use \WPCPT\Field\Radio;
+namespace WPCPT;
 
 /**
  * Short description for class
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\Autoloader
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -33,11 +27,25 @@ use \WPCPT\Field\Radio;
  * @since      Class available since Release 1.5.0
  * @deprecated Class deprecated in Release 2.0.0
  */
-class YesNoNa extends Radio
+class AutoloadHelper
 {
-    protected $options = array(
-        1 => 'Yes',
-        0 => 'No',
-        -1 => 'n/a',
-    );
+    protected $directories = array();
+
+    /**
+     *
+     * @param type $dir
+     */
+    public function addDirectory($dir)
+    {
+        $this->directories[] = $dir;
+    }
+
+    /**
+     *
+     * @return type
+     */
+    public function getDirectories()
+    {
+        return $this->directories;
+    }
 }

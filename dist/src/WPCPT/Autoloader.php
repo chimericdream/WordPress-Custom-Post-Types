@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\Autoloader
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -22,8 +19,7 @@ namespace WPCPT;
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\Autoloader
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -31,25 +27,45 @@ namespace WPCPT;
  * @since      Class available since Release 1.5.0
  * @deprecated Class deprecated in Release 2.0.0
  */
-class AutoloadHelper
+class Autoloader
 {
-    protected $directories = array();
+    protected static $prefixes = array(
+        'WPCPT',
+    );
+
+    protected static $directories = array(
+        __DIR__,
+    );
 
     /**
      *
+     * @param type $prefix
      * @param type $dir
      */
-    public function addDirectory($dir)
+    public function __construct($prefix = '', $dir = '')
     {
-        $this->directories[] = $dir;
+        if (!empty($prefix)) {
+            self::$prefixes[] = $prefix;
+        }
+        if (!empty($dir)) {
+            self::$directories[] = $dir;
+        }
+        spl_autoload_register(array(get_class($this), 'load'));
     }
 
     /**
      *
-     * @return type
+     * @param type $class
      */
-    public function getDirectories()
+    public static function load($class)
     {
-        return $this->directories;
+        foreach (self::$prefixes as $idx => $prefix) {
+            $c = str_replace($prefix, '', $class);
+            $c = str_replace(array('_', '\\'), DIRECTORY_SEPARATOR, $c);
+            $c = self::$directories[$idx] . "/{$c}.php";
+            if (is_readable($c)) {
+                require_once $c;
+            }
+        }
     }
 }

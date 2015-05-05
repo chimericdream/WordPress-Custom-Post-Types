@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -24,8 +21,7 @@ use \WPCPT\Field;
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -33,34 +29,16 @@ use \WPCPT\Field;
  * @since      Class available since Release 1.5.0
  * @deprecated Class deprecated in Release 2.0.0
  */
-class Select extends Field
+class Text extends Field
 {
     /**
      *
      */
     public function renderField()
     {
-        echo '<select id="' . $this->fieldId . '" name="' . $this->getNameAttribute() . '"';
+        echo '<input type="text" id="' . $this->fieldId . '" name="' . $this->getNameAttribute() . '"';
         $this->renderAttributes();
-        echo '>';
-        if (array_values($this->options) === $this->options) {
-            foreach ($this->options as $v) {
-                echo '<option value="' . $v . '"';
-                if ($this->value == $v) {
-                    echo ' selected="selected"';
-                }
-                echo ">{$v}</option>";
-            }
-        } else {
-            foreach ($this->options as $k => $v) {
-                echo '<option value="' . $k . '"';
-                if ($this->value == $k) {
-                    echo ' selected="selected"';
-                }
-                echo ">{$v}</option>";
-            }
-        }
-        echo '</select>';
+        echo ' value="' . $this->value . '">';
         if (!empty($this->note)) {
             echo '<p class="description">' . $this->note . '</p>';
         }

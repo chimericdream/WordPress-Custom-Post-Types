@@ -4,10 +4,7 @@
  *
  * Long description for file (if any)...
  *
- * LICENSE: Some license information
- *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field\Common
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -15,17 +12,16 @@
  * @link       http://framework.zend.com/package/PackageName
  * @since      File available since Release 1.5.0
  */
-namespace WPCPT;
+namespace WPCPT\Field\Common;
 
-use \WPCPT\Field;
+use \WPCPT\Field\Radio;
 
 /**
  * Short description for class
  *
  * Long description for class (if any)...
  *
- * @package    Zend_Magic
- * @subpackage Wand
+ * @package    WPCPT\PostType\Field\Common
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
@@ -33,32 +29,10 @@ use \WPCPT\Field;
  * @since      Class available since Release 1.5.0
  * @deprecated Class deprecated in Release 2.0.0
  */
-class Fieldset
+class YesNo extends Radio
 {
-    protected $fields = array();
-
-    /**
-     *
-     * @param Field $field
-     */
-    public function addField(Field $field)
-    {
-        $this->fields[] = $field;
-    }
-
-    /**
-     *
-     * @return type
-     */
-    public function render()
-    {
-        if (empty($this->fields)) {
-            return;
-        }
-        echo '<table class="form-table">';
-        foreach ($this->fields as $f) {
-            $f->render();
-        }
-        echo '</table>';
-    }
+    protected $options = array(
+        1 => 'Yes',
+        0 => 'No',
+    );
 }
