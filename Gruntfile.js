@@ -5,12 +5,12 @@
         grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
             shell: {
-//                phpdoc: {
-//                    options: {
-//                        stderr: false
-//                    },
-//                    command: './vendor/bin/phpdoc'
-//                },
+                apigen: {
+                    options: {
+                        stderr: false
+                    },
+                    command: 'php vendor/bin/apigen generate --template-theme "bootstrap" -s dist -d docs/api'
+                },
 //                phpunit: {
 //                    options: {
 //                        stderr: false
@@ -41,6 +41,9 @@
             clean: {
                 deploy: {
                     src: ['dist/']
+                },
+                apidoc: {
+                    src: ['docs/api/']
                 }
             },
             copy: {
@@ -135,8 +138,10 @@
             grunt.option('force', true);
             grunt.task.run([
                 'clean:deploy',
+                'clean:apidoc',
                 'copy:main',
-                'replace:wpcpt_info'
+                'replace:wpcpt_info',
+                'shell:apigen'
             ]);
         });
     };
