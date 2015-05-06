@@ -71,7 +71,8 @@ abstract class PostType
             'comments',        // (also will see comment count balloon on edit screen)
             'revisions',       // (will store revisions)
             'page-attributes', // (menu order, hierarchical must be true to show Parent option)
-            'post-formats'     //
+            'post-formats',    //
+            'wpcom-markdown',  // Markdown support via Jetpack
         ),
         'taxonomies'           => array(),
         'has_archive'          => false,

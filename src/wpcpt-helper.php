@@ -14,3 +14,8 @@ $wpcpt_autoloader = new \WPCPT\Autoloader();
 add_action('init', function () {
     do_action('wpcpt_init');
 });
+
+add_action('wpcpt_add_autoload', function ($prefix, $dir) {
+    global $wpcpt_autoloader;
+    $wpcpt_autoloader->addPrefix($prefix, $dir);
+}, 10, 2);

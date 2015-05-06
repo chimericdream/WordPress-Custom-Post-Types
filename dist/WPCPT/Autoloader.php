@@ -31,15 +31,7 @@ class Autoloader
      * @var type
      */
     protected static $prefixes = array(
-        'WPCPT',
-    );
-
-    /**
-     *
-     * @var type
-     */
-    protected static $directories = array(
-        __DIR__,
+        'WPCPT' => __DIR__
     );
 
     /**
@@ -47,15 +39,14 @@ class Autoloader
      * @param type $prefix
      * @param type $dir
      */
-    public function __construct($prefix = '', $dir = '')
+    public function __construct()
     {
-        if (!empty($prefix)) {
-            self::$prefixes[] = $prefix;
-        }
-        if (!empty($dir)) {
-            self::$directories[] = $dir;
-        }
         spl_autoload_register(array(get_class($this), 'load'));
+    }
+
+    public function addPrefix($prefix, $dir)
+    {
+        self::$prefixes[$prefix] = $dir;
     }
 
     /**
@@ -64,13 +55,36 @@ class Autoloader
      */
     public static function load($class)
     {
-        foreach (self::$prefixes as $idx => $prefix) {
-            $c = str_replace($prefix, '', $class);
-            $c = str_replace(array('_', '\\'), DIRECTORY_SEPARATOR, $c);
-            $c = self::$directories[$idx] . "/{$c}.php";
-            if (is_readable($c)) {
-                require_once $c;
-            }
+        $c = str_replace(array('_', '\\'), DIRECTORY_SEPARATOR, $class);
+
+        $prefix = self::getPrefix($c);
+        if (is_null($prefix) || !array_key_exists($prefix, self::$prefixes)) {
+            return;
         }
+
+        $filename = self::getFilename($prefix, $c);
+        if (is_readable($filename)) {
+            require_once $filename;
+        }
+    }
+
+    /**
+     *
+     * @param type $class
+     * @return type
+     */
+    public static function getPrefix($class)
+    {
+        $pieces = explode(DIRECTORY_SEPARATOR, $class);
+        if (empty($pieces)) {
+            return null;
+        }
+        return $pieces[0];
+    }
+
+    public static function getFilename($prefix, $class)
+    {
+        $filename = str_replace($prefix, '', $class);
+        return self::$prefixes[$prefix] . $filename . '.php';
     }
 }
