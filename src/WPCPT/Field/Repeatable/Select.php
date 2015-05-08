@@ -7,7 +7,7 @@
  * @copyright  {{@wpcpt_copyright}}
  * @license    {{@wpcpt_license}}
  * @version    {{@wpcpt_version}}
- * @link       http://framework.zend.com/package/PackageName
+ * @link       https://github.com/chimericdream/WordPress-Custom-Post-Types/blob/master/src/WPCPT/Field/Repeatable/Select.php
  * @since      File available since Release 1.0.0
  */
 namespace WPCPT\Field\Repeatable;
@@ -24,7 +24,6 @@ use \WPCPT\Field\Select as SelectField;
  * @author     {{@wpcpt_author_full}}
  * @copyright  {{@wpcpt_copyright}}
  * @license    {{@wpcpt_license}}
- * @link       http://framework.zend.com/package/PackageName
  * @since      Class available since Release 1.0.0
  */
 class Select extends Repeatable

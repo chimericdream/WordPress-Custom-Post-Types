@@ -7,7 +7,7 @@
  * @copyright  {{@wpcpt_copyright}}
  * @license    {{@wpcpt_license}}
  * @version    {{@wpcpt_version}}
- * @link       http://framework.zend.com/package/PackageName
+ * @link       https://github.com/chimericdream/WordPress-Custom-Post-Types/blob/master/src/WPCPT/Shortcode/Raw.php
  * @since      File available since Release 1.1.0
  */
 namespace WPCPT\Shortcode;
@@ -23,7 +23,6 @@ use \WPCPT\Shortcode;
  * @author     {{@wpcpt_author_full}}
  * @copyright  {{@wpcpt_copyright}}
  * @license    {{@wpcpt_license}}
- * @link       http://framework.zend.com/package/PackageName
  * @since      Class available since Release 1.1.0
  */
 class Raw extends Shortcode
