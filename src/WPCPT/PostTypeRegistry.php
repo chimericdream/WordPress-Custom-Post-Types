@@ -1,6 +1,6 @@
 <?php
 /**
- * Short description for file
+ * Contains the PostTypeRegistry class
  *
  * @package    WPCPT\PostType
  * @author     {{@wpcpt_author_full}}

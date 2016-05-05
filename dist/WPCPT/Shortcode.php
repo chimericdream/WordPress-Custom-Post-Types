@@ -1,13 +1,13 @@
 <?php
 /**
- * Short description for file
+ * Contains the {@link Shortcode} class
  *
  * @package    WPCPT\Shortcode
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
  * @version    2.0.0a
- * @link       http://framework.zend.com/package/PackageName
+ * @link       https://github.com/chimericdream/WordPress-Custom-Post-Types/blob/master/src/WPCPT/Shortcode.php
  * @since      File available since Release 1.0.0
  */
 namespace WPCPT;
@@ -21,7 +21,6 @@ namespace WPCPT;
  * @author     Bill Parrott <bill@chimericdream.com> (http://chimericdream.com/)
  * @copyright  2014-15 Bill Parrott
  * @license    http://opensource.org/licenses/MIT
- * @link       http://framework.zend.com/package/PackageName
  * @since      Class available since Release 1.0.0
  */
 abstract class Shortcode

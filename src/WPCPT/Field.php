@@ -1,6 +1,6 @@
 <?php
 /**
- * Short description for file
+ * Contains the Field class
  *
  * @package    WPCPT\PostType\Field
  * @author     {{@wpcpt_author_full}}

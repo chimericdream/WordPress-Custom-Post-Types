@@ -1,6 +1,6 @@
 <?php
 /**
- * Short description for file
+ * Contains the ShortcodeRegistry class
  *
  * @package    WPCPT\Shortcode
  * @author     {{@wpcpt_author_full}}

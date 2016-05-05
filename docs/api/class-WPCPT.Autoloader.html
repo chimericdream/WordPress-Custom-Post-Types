@@ -5,86 +5,63 @@
 
 	<title>Class WPCPT\Autoloader</title>
 
-	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
-	<link rel="stylesheet" href="resources/style.css?a2b5efb503881470385230f40f9bcc3c94d665e7">
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
 
 </head>
 
 <body>
-	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href="index.html" class="navbar-brand">Overview</a>
-			</div>
-			<div class="collapse navbar-collapse">
-
-                <form id="search" class="navbar-form navbar-left" role="search">
-                    <input type="hidden" name="cx" value="">
-                    <input type="hidden" name="ie" value="UTF-8">
-                    <div class="form-group">
-                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
-					</div>
-				</form>
-
-				<ul class="nav navbar-nav">
-					<li>
-						<a href="namespace-WPCPT.html" title="Summary of WPCPT"><span>Namespace</span></a>
-					</li>
-					<li class="active">
-<span>Class</span>					</li>
-
-
-
-
-
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<div id="left">
+<div id="left">
 	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
 
 		<div id="groups">
 				<h3>Namespaces</h3>
 			<ul>
-					<li class="active">
-						<a href="namespace-WPCPT.html">
-							WPCPT<span></span>
-						</a>
-							<ul>
-					<li>
-						<a href="namespace-WPCPT.Field.html">
-							Field<span></span>
-						</a>
-							<ul>
-					<li>
-						<a href="namespace-WPCPT.Field.Common.html">
-							Common						</a>
-							</li>
-					<li>
-						<a href="namespace-WPCPT.Field.Repeatable.html">
-							Repeatable						</a>
-							</li>
-					<li>
-						<a href="namespace-WPCPT.Field.Textarea.html">
-							Textarea						</a>
-							</li>
-								</ul></li>
-					<li>
-						<a href="namespace-WPCPT.Shortcode.html">
-							Shortcode						</a>
-							</li>
-								</ul></li>
+				<li class="active">
+					<a href="namespace-WPCPT.html">
+						WPCPT<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-WPCPT.Field.html">
+						Field<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-WPCPT.Field.Common.html">
+						Common					</a>
+
+						</li>
+				<li>
+					<a href="namespace-WPCPT.Field.Repeatable.html">
+						Repeatable					</a>
+
+						</li>
+				<li>
+					<a href="namespace-WPCPT.Field.Textarea.html">
+						Textarea					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-WPCPT.Shortcode.html">
+						Shortcode					</a>
+
+						</li>
+							</ul></li>
 			</ul>
 		</div>
+
+		<hr>
 
 
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
 				<li class="active"><a href="class-WPCPT.Autoloader.html">Autoloader</a></li>
-				<li><a href="class-WPCPT.AutoloadHelper.html">AutoloadHelper</a></li>
 				<li><a href="class-WPCPT.Field.html">Field</a></li>
 				<li><a href="class-WPCPT.Fieldset.html">Fieldset</a></li>
 				<li><a href="class-WPCPT.PostType.html">PostType</a></li>
@@ -104,15 +81,41 @@
 <div id="splitter"></div>
 
 <div id="right">
-	<div id="rightInner">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-WPCPT.html" title="Summary of WPCPT"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
 <div id="content" class="class">
 	<h1>Class Autoloader</h1>
 
 
 	<div class="description">
-	<p>Short description for class</p>
+	<p>The Autoloader eliminates the need to <code>require</code> or <code>include</code> every individual
+PHP file to be used.</p>
 
-<p>Long description for class (if any)...</p>
+<p><em>Note:</em> This Autoloader assumes a valid PSR-4 directory structure. See the
+<a href="http://www.php-fig.org/psr/psr-4/">PHP FIG documentation regarding PSR-4 standards</a> for more information. For
+more information about autoloading in PHP, see the <a href="http://php.net/manual/en/language.oop5.autoload.php">PHP.net page on the topic</a>.</p>
 	</div>
 
 
@@ -123,7 +126,7 @@
 
 
 
-	<div class="alert alert-info">
+	<div class="info">
 		
 		
 		<b>Namespace:</b> <a href="namespace-WPCPT.html">WPCPT</a><br>
@@ -137,186 +140,34 @@
 				Bill Parrott <a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x62;&#105;&#108;&#x6c;&#x40;&#99;&#104;&#x69;&#x6d;e&#114;&#x69;&#x63;d&#114;&#101;&#x61;&#x6d;&#46;&#99;&#x6f;&#x6d;">&#x62;&#105;&#108;&#x6c;&#x40;&#99;&#104;&#x69;&#x6d;e&#114;&#x69;&#x63;d&#114;&#101;&#x61;&#x6d;&#46;&#99;&#x6f;&#x6d;</a> (http://chimericdream.com/)<br>
 				<b>Since:</b>
 				Class available since Release 1.0.0<br>
-				<b>Link:</b>
-				<a href="http://framework.zend.com/package/PackageName">http://framework.zend.com/package/PackageName</a><br>
-			<b>Located at</b> <a href="source-class-WPCPT.Autoloader.html#15-90" title="Go to source code">WPCPT/Autoloader.php</a>
+			<b>Located at</b> <a href="source-class-WPCPT.Autoloader.html#15-120" title="Go to source code">WPCPT/Autoloader.php</a>
 		<br>
 	</div>
 
 
 
-		<div class="panel panel-default">
-			<div class="panel-heading"><h2>Methods summary</h2></div>
-			<table class="summary table table-bordered table-striped methods" id="methods">
-		<tr data-order="__construct" id="___construct">
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="register" id="_register">
 
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
+		<td class="attributes"><code>
+			 public 
 
-			<td class="name"><div>
-			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-WPCPT.Autoloader.html#37-45" title="Go to source code">__construct</a>( <span>type <var>$prefix</var>,…</span>, <span>type <var>$dir</var>,…</span> )</code>
+			
+			
+			</code>
+		</td>
 
-			<div class="description short">
-				
-			</div>
+		<td class="name"><div>
+		<a class="anchor" href="#_register">#</a>
+		<code><a href="source-class-WPCPT.Autoloader.html#42-48" title="Go to source code">register</a>( )</code>
 
-			<div class="description detailed hidden">
-				
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$prefix</var>,…</dt>
-						<dd></dd>
-						<dt><var>$dir</var>,…</dt>
-						<dd></dd>
-					</dl></div>
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="addPrefix" id="_addPrefix">
-
-			<td class="attributes"><code>
-				 public 
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_addPrefix">#</a>
-			<code><a href="source-class-WPCPT.Autoloader.html#47-50" title="Go to source code">addPrefix</a>( <span> <var>$prefix</var></span>, <span> <var>$dir</var></span> )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="load" id="_load">
-
-			<td class="attributes"><code>
-				 public static
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_load">#</a>
-			<code><a href="source-class-WPCPT.Autoloader.html#52-69" title="Go to source code">load</a>( <span>type <var>$class</var></span> )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$class</var></dt>
-						<dd></dd>
-					</dl></div>
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="getPrefix" id="_getPrefix">
-
-			<td class="attributes"><code>
-				 public static
-				type
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getPrefix">#</a>
-			<code><a href="source-class-WPCPT.Autoloader.html#71-83" title="Go to source code">getPrefix</a>( <span>type <var>$class</var></span> )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-					<h4>Parameters</h4>
-					<div class="list"><dl>
-						<dt><var>$class</var></dt>
-						<dd></dd>
-					</dl></div>
-
-					<h4>Returns</h4>
-					<div class="list">
-						type
-					</div>
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-		<tr data-order="getFilename" id="_getFilename">
-
-			<td class="attributes"><code>
-				 public static
-				
-				
-				</code>
-			</td>
-
-			<td class="name"><div>
-			<a class="anchor" href="#_getFilename">#</a>
-			<code><a href="source-class-WPCPT.Autoloader.html#85-89" title="Go to source code">getFilename</a>( <span> <var>$prefix</var></span>, <span> <var>$class</var></span> )</code>
-
-			<div class="description short">
-				
-			</div>
-
-			<div class="description detailed hidden">
-				
-
-
-
-
-
-
-
-			</div>
-			</div></td>
-		</tr>
-			</table>
+		<div class="description short">
+			<p>Registers the autoloader with PHP.</p>
 		</div>
 
+		<div class="description detailed hidden">
+			<p>Registers the autoloader with PHP.</p>
 
 
 
@@ -324,41 +175,224 @@
 
 
 
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="addPrefix" id="_addPrefix">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_addPrefix">#</a>
+		<code><a href="source-class-WPCPT.Autoloader.html#50-74" title="Go to source code">addPrefix</a>( <span>string <var>$prefix</var></span>, <span>string <var>$dir</var></span> )</code>
+
+		<div class="description short">
+			<p>Adds a prefix or namespace for the autoloader to check when looking for
+a class.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Adds a prefix or namespace for the autoloader to check when looking for
+a class.</p>
+
+<p>A prefix can either be a first-level namespace or the first term of a
+class name that uses underscores to indicate its directory structure
+(such as the Zend Framework).</p>
+
+<p>Example:</p>
+
+<pre><code>$autoloader-&gt;addPrefix('MyNamespace', '/some/path/here');
+
+// Both of the following will be looked for in the path above. The Autoloader will look for
+// the file "/some/path/here/MyNamespace/SomeClass.php"
+$class1 = new \MyNamespace\SomeClass();
+$class2 = new MyNamespace_SomeClass();
+</code></pre>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prefix</var></dt>
+					<dd>The first-level namespace or first term of the class structure</dd>
+					<dt><var>$dir</var></dt>
+					<dd>The highest-level folder for the namespace</dd>
+				</dl></div>
 
 
 
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-			<table class="summary table table-bordered table-striped properties" id="properties">
-		<tr data-order="prefixes" id="$prefixes">
-			<td class="attributes"><code>
-				protected static 
-				type
-			</code></td>
 
-			<td class="name">
-					<a href="source-class-WPCPT.Autoloader.html#29-35" title="Go to source code"><var>$prefixes</var></a>
 
-				<div class="description short">
-					
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="load" id="_load">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_load">#</a>
+		<code><a href="source-class-WPCPT.Autoloader.html#76-93" title="Go to source code">load</a>( <span>type <var>$class</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$class</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPrefix" id="_getPrefix">
+
+		<td class="attributes"><code>
+			 public static
+
+			type
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPrefix">#</a>
+		<code><a href="source-class-WPCPT.Autoloader.html#95-107" title="Go to source code">getPrefix</a>( <span>type <var>$class</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$class</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					type
 				</div>
 
-				<div class="description detailed hidden">
-					
 
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getFilename" id="_getFilename">
+
+		<td class="attributes"><code>
+			 public static
+
+			type
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getFilename">#</a>
+		<code><a href="source-class-WPCPT.Autoloader.html#109-119" title="Go to source code">getFilename</a>( <span>type <var>$prefix</var></span>, <span>type <var>$class</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$prefix</var></dt>
+					<dd></dd>
+					<dt><var>$class</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					type
 				</div>
-			</td>
-			<td class="value">
-				<div>
-					<a href="#$prefixes" class="anchor">#</a>
-					<code><span class="php-keyword1">array</span>(
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="prefixes" id="$prefixes">
+		<td class="attributes"><code>
+			protected static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-WPCPT.Autoloader.html#31-40" title="Go to source code"><var>$prefixes</var></a>
+
+			<div class="description short">
+				<p>This array stores the mapping of class prefixes (or namespaces) to the
+directory in which those files are stored. See <code><a href="class-WPCPT.Autoloader.html#_addPrefix">WPCPT\Autoloader::addPrefix()</a></code>
+for instructions on how to register namespaces or prefixes.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>This array stores the mapping of class prefixes (or namespaces) to the
+directory in which those files are stored. See <code><a href="class-WPCPT.Autoloader.html#_addPrefix">WPCPT\Autoloader::addPrefix()</a></code>
+for instructions on how to register namespaces or prefixes.</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$prefixes" class="anchor">#</a>
+				<code><span class="php-keyword1">array</span>(
     <span class="php-quote">'WPCPT'</span> =&gt; __DIR__
 )</code>
-				</div>
-			</td>
-		</tr>
-			</table>
-		</div>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
@@ -366,11 +400,11 @@
 
 
 </div>
-	</div>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
+</div>
 </div>
 <script src="resources/combined.js"></script>
 <script src="elementlist.js"></script>

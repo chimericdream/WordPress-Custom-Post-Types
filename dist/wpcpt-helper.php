@@ -9,13 +9,14 @@
  * License: http://opensource.org/licenses/MIT
  */
 require_once dirname(__FILE__) . '/WPCPT/Autoloader.php';
-$wpcpt_autoloader = new \WPCPT\Autoloader();
+$loader = new \WPCPT\Autoloader();
+$loader->register();
 
 add_action('init', function () {
     do_action('wpcpt_init');
 });
 
 add_action('wpcpt_add_autoload', function ($prefix, $dir) {
-    global $wpcpt_autoloader;
-    $wpcpt_autoloader->addPrefix($prefix, $dir);
+    global $loader;
+    $loader->addPrefix($prefix, $dir);
 }, 10, 2);

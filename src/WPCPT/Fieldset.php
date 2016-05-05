@@ -1,6 +1,6 @@
 <?php
 /**
- * Short description for file
+ * Contains the Fieldset class
  *
  * @package    WPCPT\PostType\Fieldset
  * @author     {{@wpcpt_author_full}}

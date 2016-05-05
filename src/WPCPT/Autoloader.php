@@ -1,6 +1,6 @@
 <?php
 /**
- * Short description for file
+ * Contains the Autoloader class
  *
  * @package    WPCPT\Autoloader
  * @author     {{@wpcpt_author_full}}
@@ -13,9 +13,12 @@
 namespace WPCPT;
 
 /**
- * Short description for class
+ * The Autoloader eliminates the need to `require` or `include` every individual
+ * PHP file to be used.
  *
- * Long description for class (if any)...
+ * _Note:_ This Autoloader assumes a valid PSR-4 directory structure. See the
+ * [PHP FIG documentation regarding PSR-4 standards](http://www.php-fig.org/psr/psr-4/) for more information. For
+ * more information about autoloading in PHP, see the [PHP.net page on the topic](http://php.net/manual/en/language.oop5.autoload.php).
  *
  * @package    WPCPT\Autoloader
  * @author     {{@wpcpt_author_full}}
@@ -26,25 +29,44 @@ namespace WPCPT;
 class Autoloader
 {
     /**
+     * This array stores the mapping of class prefixes (or namespaces) to the
+     * directory in which those files are stored. See {@link addPrefix}
+     * for instructions on how to register namespaces or prefixes.
      *
-     * @var type
+     * @var array
      */
     protected static $prefixes = array(
         'WPCPT' => __DIR__
     );
 
     /**
-     *
+     * Registers the autoloader with PHP.
      */
-    public function __construct()
+    public function register()
     {
         spl_autoload_register(array(get_class($this), 'load'));
     }
 
     /**
+     * Adds a prefix or namespace for the autoloader to check when looking for
+     * a class.
      *
-     * @param type $prefix
-     * @param type $dir
+     * A prefix can either be a first-level namespace or the first term of a
+     * class name that uses underscores to indicate its directory structure
+     * (such as the Zend Framework).
+     *
+     * Example:
+     * ```
+     * $autoloader->addPrefix('MyNamespace', '/some/path/here');
+     *
+     * // Both of the following will be looked for in the path above. The Autoloader will look for
+     * // the file "/some/path/here/MyNamespace/SomeClass.php"
+     * $class1 = new \MyNamespace\SomeClass();
+     * $class2 = new MyNamespace_SomeClass();
+     * ```
+     *
+     * @param string $prefix The first-level namespace or first term of the class structure
+     * @param string $dir    The highest-level folder for the namespace
      */
     public function addPrefix($prefix, $dir)
     {
